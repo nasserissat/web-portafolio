@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+$primary-color: #101010; // o este azul marico casi negro: 0A0B1F
+$secondary-color: #E11BB7 //o este color verde oscuro#36574f
+
+//254e7d morado oscuro
