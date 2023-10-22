@@ -8,7 +8,28 @@
 body{
     font-family: 'Montserrat', sans-serif;
 }
-$primary-color: #101010; // o este azul marico casi negro: 0A0B1F
-$secondary-color: #E11BB7 //o este color verde oscuro#36574f
+$primary-color: #fff; // o este azul marico casi negro: 0A0B1F
+$secondary-color: #001F3F; //o este color verde oscuro#36574f
 
-//254e7d morado oscuro
+
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: skewX(-25deg);
+    transition: all 0.7s;
+    pointer-events: none;
+}
+
+.shine-effect:hover::before {
+    left: 200%;
+}

@@ -11,11 +11,13 @@ export class TyperComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
       const options = {
         strings: [
-          'A full stack developer'
+          'A full stack developer',
+          'A DBA',
+          'And U/X designer'
         ],
-        typeSpeed: 50,
-        backSpeed: 50,
-        loop: false
+        typeSpeed: 40,
+        backSpeed: 40,
+        loop: true
       };
   
       this.typed = new Typed('.elemento-typed', options);
