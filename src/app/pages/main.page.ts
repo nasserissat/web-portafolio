@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     template: `
     <div class="grid lg:grid-cols-12 items-center h-screen">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
-            <h4 class="text-lg font-medium">Hey there, </h4>
+            <h4 class="text-lg font-medium">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
                 I'm <span class="text-[#705DF2]">Nasser</span> 
             </p>
@@ -15,8 +15,8 @@ import { Component } from "@angular/core";
                 <button class="py-2 px-6 lg:py-2.5 lg:px-8 text-sm lg:text-lg bg-[#705DF2] font-bold text-white rounded-full hover:bg-[#7e6ee6] duration-150 shine-effect shadow-custom hover:scale-105">Hire me</button>
             </div>
         </div>
-        <div class="grid col-span-12 items-center lg:col-span-5 h-full mt-4 lg:mt-0">
-            <img class="rounded-lg object-cover w-full h-5/6" src="../../assets/IMG_9199.jpg" alt="Nasser's picture">            
+        <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full">
+            <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6  mt-4 lg:mt-0" src="../../assets/IMG_9199.jpg" alt="Nasser's picture">            
         </div>
        
     </div>

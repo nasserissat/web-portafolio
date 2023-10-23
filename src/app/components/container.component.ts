@@ -31,7 +31,7 @@ import { Component } from "@angular/core";
           </div>
         </header>
       
-        <main class="grid max-w-[100vw] px-5 py-5 flex-grow flex-1 overflow-y-auto">
+        <main class="grid max-w-[100vw] px-5 py-20 lg:py-5 flex-grow flex-1 overflow-y-auto">
             <router-outlet></router-outlet>
         </main>
         
