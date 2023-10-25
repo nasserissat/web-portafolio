@@ -15,8 +15,8 @@ export class TyperComponent implements OnInit, OnDestroy {
           'A DBA',
           'And U/X designer'
         ],
-        typeSpeed: 40,
-        backSpeed: 40,
+        typeSpeed: 38,
+        backSpeed: 38,
         loop: true
       };
   

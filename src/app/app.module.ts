@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TyperComponent } from './components/typer.component';
 import { MainPage } from './pages/main.page';
 import { ContainerComponent } from './components/container.component';
+import { AnimatedNumberComponent } from './components/animate-number.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     TyperComponent,
     ContainerComponent,
+    AnimatedNumberComponent,
 
 
     // Pages
