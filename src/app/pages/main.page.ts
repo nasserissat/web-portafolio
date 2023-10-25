@@ -21,13 +21,13 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         </div>
        
     </div>
-    <div class="grid col-span-12 bg-[#160C21] h-screen text-white">
-        <div class="grid cols-span-12 lg:col-span-1 items-center text-center p-5 lg:mx-[385px]">
+    <div class="grid bg-[#160C21] h-screen text-white">
+        <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="font-bold text-xl lg:text-4xl pb-4">Get good at Three.js with <br> only <span class="text-[#705DF2]">one course</span></h1>
             <p class="text-sm lg:text-lg pb-2 leading-4">Joining Three.js Journey will give you lifetime access to a complete and easy to access course with 54 lessons.</p>
             <p class="text-sm lg:text-lg pt-2 leading-4">Want to see what's included? Check out the video down below: </p>
         </div>
-        <div class="grid grid-cols-3 lg:col-span-1 items-center text-center p-5 py-0 lg:mx-[385px]">
+        <div class="grid grid-cols-3 items-center text-center p-5 py-0 lg:mx-[385px]">
             <div *ngFor="let number of numbersToAnimate">
                 <app-animated-number 
                     [maxValue]="number.maxValue" 
@@ -36,15 +36,15 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
                 </app-animated-number>
             </div>
         </div> 
-        <div class="grid grid-cols-3 lg:col-span-1 text-center p-5 pt-0 lg:mx-[385px]">
+        <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px]">
             <h3>Months of experience</h3>
             <h3>Proyects completed</h3>
             <h3>Technologies mastered</h3>
         </div> 
-        <div class="grid grid-cols-1 lg:col-span-1 text-center px-5 pt-0 lg:mx-[385px]">
-            <img src="../../assets/background-main.jpeg" class="">
+        <div class="grid justify-center items-center p-5 pt-0">
+            <img src="../../assets/background-main.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
         </div>
-        <div class="grid cols-span-12 lg:col-span-1 text-center px-5 lg:mx-[385px]">
+        <div class="grid text-center px-5 lg:mx-[385px]">
             <p class="leading-7 text-sm lg:text-lg pb-2">
             Each lesson begins with a starter folder to download.
             Then, simply follow the tutorial!
@@ -52,6 +52,9 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         
             </p>
         </div> 
+    </div>
+    <div class="grid items-center justify-center bg-white h-screen">
+        <h1>Hola</h1>
     </div>
     `,
 })
