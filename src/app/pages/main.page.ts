@@ -3,7 +3,7 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
 @Component({
     selector: 'main-page',
     template: `
-    <div class="grid lg:grid-cols-12 items-center h-screen lg:p-24 lg:pt-4 px-5">
+    <div id="home" class="grid lg:grid-cols-12 items-center h-[90vh] lg:p-24 lg:pt-4 px-5">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
@@ -19,9 +19,8 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full">
             <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6  mt-4 lg:mt-0" src="../../assets/IMG_9199.jpg" alt="Nasser's picture">            
         </div>
-       
     </div>
-    <div class="grid bg-[#160C21] h-screen text-white">
+    <div id="about" class="grid bg-[#160C21] h-[90vh] text-white">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="font-bold text-xl lg:text-4xl pb-4">Get good at Three.js with <br> only <span class="text-[#705DF2]">one course</span></h1>
             <p class="text-sm lg:text-lg pb-2 leading-4">Joining Three.js Journey will give you lifetime access to a complete and easy to access course with 54 lessons.</p>
@@ -48,13 +47,16 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
             <p class="leading-7 text-sm lg:text-lg pb-2">
             Each lesson begins with a starter folder to download.
             Then, simply follow the tutorial!
-
-        
             </p>
         </div> 
     </div>
-    <div class="grid items-center justify-center bg-white h-screen">
-        <h1>Hola</h1>
+    <div id="portafolio" class="grid items-center justify-center h-[90vh] bg-white">
+        <h1 class="font-bold text-xl">What will you learn?</h1>
+        <p clas>
+            The course is complete, yet accessible for beginners. We will start by discovering what WebGL is and why using the Three.js library is a must. We will then discover the various components of Three.js and once the basics are acquired, we will move on to more advanced techniques to display millions of particles, add physics, add interactions, create a galaxy, animate a raging sea, etc.
+            At the end of the course, you will have a deep understanding of Three.js and enough experience to start your own projects.
+            As a bonus, we will also learn how to use the 3D software Blender to be able to create our own models.
+        </p>
     </div>
     `,
 })
@@ -85,8 +87,4 @@ export class MainPage {
         { maxValue: 6, duration: 2000, color: "text-white" },
         { maxValue: 8, duration: 2000, color: "text-white" },
     ];
-    
-    
-
-
 }
