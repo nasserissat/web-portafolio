@@ -5,8 +5,21 @@ module.exports = {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'custom': '0px 10px 15px rgba(0, 0, 0, 0.1)'
+      colors: {
+        primary: '#003366',
+        secondary: '#fff',
+        tertiary: '#160C21',
+        // On hover
+        primary_hover: '#003366',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      },
+      animation: {
+        scroll: 'scroll 40s linear infinite',
       }
     },
   },

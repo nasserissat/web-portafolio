@@ -5,7 +5,7 @@ import { MainPage } from './pages/main.page';
 import { ContatPage } from './pages/contact.page';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: "full"},
+  {path: '', redirectTo: '/home', pathMatch: "full"},
   {path: '', component: ContainerComponent, children: [
     {path: 'home', component: MainPage},
     {path: 'contact', component: ContatPage},
