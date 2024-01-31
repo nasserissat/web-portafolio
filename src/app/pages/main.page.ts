@@ -44,6 +44,32 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
     </div>   -->
 
 
+    <div id="about" class="grid bg-tertiary text-secondary h-screen py-8">
+        <div class="grid cols-span-12 items-center text-center space-y-6 p-5 lg:mx-[385px]">
+            <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
+            <p class="text-xs lg:text-lg text-center"> I am a graduate from ITLA, esteemed as one of <b>the most prestigious</b> institutions in the Caribbean and Central America.</p> 
+            <p class="text-xs lg:text-lg text-center">This institution boasts <b>ABET accreditation</b>, a global benchmark of excellence.</p>             
+            <div class="flex justify-center relative">
+                <img src="../../assets/itla.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
+                <div class="flex justify-between absolute top-1/2 w-full">
+                    <i class="fa-solid fa-chevron-left chevron-class"></i>
+                    <i class="fa-solid fa-chevron-right chevron-class"></i>
+                </div>
+                <div class="carousel-indicators">
+                    <i class="fa-solid fa-circle text-red-200"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                </div>
+            </div>
+        </div>
+       
+        <p class="text-sm lg:text-lg text-center">
+         Want to see what's included? Check out the video down below:
+        </p>
+        <div class="grid justify-center items-center p-5 pt-0">
+            <img src="../../assets/background-main.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
+        </div>
+    </div>
     <div id="about" class="grid bg-tertiary text-secondary h-screen">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
@@ -73,34 +99,11 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
                 <img  src="../../assets/typescript.png" class="w-1/3 max-h-12">
                 <img  src="../../assets/sqlserver-logo.webp" class="w-1/3 max-h-12">
                 <img  src="../../assets/mysql-logo.png" class="w-1/3 max-h-12">
-
             </div>
         </div>
         <p class="text-sm lg:text-lg text-center">
          Want to see what's included? Check out the video down below:
-
         </p>
-        <div class="grid justify-center items-center p-5 pt-0">
-            <img src="../../assets/background-main.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-        </div>
-        <!-- <h1 class="font-bold text-xl lg:text-4xl text-center">World-Class Education</h1>
-        <div class="grid lg:grid-flow-col">
-            <div class="grid justify-center items-center px-5">
-                <h1 class="subtitle">ITLA</h1>
-                <p class="text-sm lg:text-lg text-justify">
-                    I am a graduate from ITLA, esteemed as one of the most prestigious institutions in the Caribbean and Central America. This institution boasts ABET accreditation, a global benchmark of excellence.
-                </p>
-                <img src="../../assets/itla.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-            </div>
-            <div class="grid justify-center items-center px-5">
-                
-            <h1 class="subtitle ">UNIBE</h1>
-                <p class="text-sm lg:text-lg text-justify">
-                Often referred to as the 'Harvard of Latin America', one of the top universities in the Dominican Republic, renowned for its quality and international recognition.
-                </p>
-                <img src="../../assets/unibejpg.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-            </div>
-        </div> -->
     </div>
 
     <div id="portafolio" class="grid items-center justify-center h-screen">
