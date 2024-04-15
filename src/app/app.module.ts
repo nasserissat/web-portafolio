@@ -7,6 +7,7 @@ import { TyperComponent } from './components/typer.component';
 import { MainPage } from './pages/main.page';
 import { ContainerComponent } from './components/container.component';
 import { AnimatedNumberComponent } from './components/animate-number.page';
+import { CarouselComponent } from './components/carousel.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,7 @@ import { AnimatedNumberComponent } from './components/animate-number.page';
     TyperComponent,
     ContainerComponent,
     AnimatedNumberComponent,
-
-
+    CarouselComponent,
     // Pages
     MainPage
   ],

@@ -1,9 +1,10 @@
 import { Component, ElementRef, Renderer2, AfterViewInit, ViewChild, ViewChildren, QueryList } from "@angular/core";
 import { AnimatedNumberComponent } from "../components/animate-number.page";
+import { Slider } from "../models/models";
 @Component({
     selector: 'main-page',
     template: `
-    <div id="home" class="grid lg:grid-cols-12 items-center lg:h-screen lg:p-24 lg:pt-4 px-5">
+    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen lg:p-24 lg:pt-4 px-5">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
@@ -21,30 +22,12 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
             <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="../../assets/IMG_9199.jpg" alt="Nasser's picture">            
         </div>
-    </div>
-    <!-- <div id="about" class="grid cols-span-12 bg-tertiary text-secondary h-screen lg:mx-[385px p-5">
-        <h1 class="font-bold text-xl lg:text-4xl text-center">World-Class Education</h1>
-        <div class="grid lg:grid-flow-col">
-            <div class="grid justify-center items-center px-5">
-                <h1 class="subtitle">ITLA</h1>
-                <p class="text-sm lg:text-lg text-justify">
-                    I am a graduate from ITLA, esteemed as one of the most prestigious institutions in the Caribbean and Central America. This institution boasts ABET accreditation, a global benchmark of excellence.
-                </p>
-                <img src="../../assets/itla.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-            </div>
-            <div class="grid justify-center items-center px-5">
-                
-            <h1 class="subtitle ">UNIBE</h1>
-                <p class="text-sm lg:text-lg text-justify">
-                Often referred to as the 'Harvard of Latin America', one of the top universities in the Dominican Republic, renowned for its quality and international recognition.
-                </p>
-                <img src="../../assets/unibejpg.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-            </div>
-        </div>
-    </div>   -->
+    </section>
 
 
-    <div id="about" class="grid bg-tertiary text-secondary h-screen py-8">
+    <section id="about" class="grid bg-tertiary text-secondary h-screen py-8">
+    <app-carousel [slides]="customSlides"></app-carousel>
+
         <div class="grid cols-span-12 items-center text-center space-y-6 p-5 lg:mx-[385px]">
             <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
             <p class="text-xs lg:text-lg text-center"> I am a graduate from ITLA, esteemed as one of <b>the most prestigious</b> institutions in the Caribbean and Central America.</p> 
@@ -69,8 +52,8 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         <div class="grid justify-center items-center p-5 pt-0">
             <img src="../../assets/background-main.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
         </div>
-    </div>
-    <div id="about" class="grid bg-tertiary text-secondary h-screen">
+    </section>
+    <section id="about" class="grid bg-tertiary text-secondary h-screen">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
             <p class="text-sm lg:text-lg text-center">
@@ -104,9 +87,9 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
         <p class="text-sm lg:text-lg text-center">
          Want to see what's included? Check out the video down below:
         </p>
-    </div>
+    </section>
 
-    <div id="portafolio" class="grid items-center justify-center h-screen">
+    <section id="portafolio" class="grid items-center justify-center h-screen">
         <h1 class="font-bold text-xl">My projects</h1>
         <div class="grid grid-cols-12">
             <div class="grid col-span-12 xl:col-span-6 bg-primary rounded-lg p-4 m-2 text-center">
@@ -118,7 +101,7 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
                 <p>descripcion</p>
             </div>
         </div>
-    </div>
+    </section>
     `,
 })
 export class MainPage {
@@ -148,5 +131,27 @@ export class MainPage {
         { maxValue: 6, duration: 2000, color: "text-secondary" },
         { maxValue: 8, duration: 2000, color: "text-secondary" },
     ];
-
+    customSlides: Slider[] = [
+        {
+          img: '../../assets/itla.jpeg',
+          title: 'My professional career',
+          description: 'I am a graduate from ITLA, esteemed as one of the most prestigious institutions in the Caribbean and Central America.',
+          link: 'https://example.com/more-about-innovation',
+          icon: 'fa-solid fa-graduation-cap'
+        },
+        {
+          img: '../../assets/abet.jpeg',
+          title: 'Worldwide recognition."',
+          description: 'ITLA institution boasts ABET accreditation, a global benchmark of excellence.',
+          link: 'https://example.com/more-about-sustainability',
+          icon: 'fa-solid fa-earth-americas'
+        },
+        {
+          img: '../../assets/unibejpg.jpeg',
+          title: 'Educación y Tecnología',
+          description: 'Aprende sobre la integración de nuevas tecnologías en sistemas educativos modernos.',
+          link: 'https://example.com/more-about-education',
+          icon: 'fa-solid fa-microchip'
+        }
+      ];
 }

@@ -14,8 +14,7 @@ export class AnimatedNumberComponent implements OnInit {
   intervalId: any;
   animationStarted: boolean = false;
   constructor(private cdRef: ChangeDetectorRef, public elRef: ElementRef) { }
-
-
+  
   ngOnInit(): void {
     
   }
