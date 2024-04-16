@@ -44,7 +44,7 @@ $secondary-color: #001F3F; //o este color verde oscuro#36574f
 
 
 .chevron-class{ @apply p-5 bg-gray-50 hover:bg-slate-100 hover:bg-opacity-80 duration-200 bg-opacity-40 text-tertiary text-sm h-2 w-2 lg:text-lg lg:h-3.5 lg:w-3.5 flex items-center justify-center rounded-full cursor-pointer mx-1 lg:mx-0}
-.carousel-indicators{@apply h-12 bg-gray-300 hover:bg-blue-100 hover:h-10 duration-300 hover:duration-200  rounded-full p-4 flex items-center justify-center text-tertiary}
+.carousel-indicators{@apply cursor-pointer h-12 bg-gray-300 hover:bg-white hover:h-9 duration-300 hover:duration-200 ease-in-out  rounded-full p-4 flex items-center justify-center text-tertiary}
 .input {
     @apply w-full p-2.5 border border-primary/50 rounded-md mt-2
   }

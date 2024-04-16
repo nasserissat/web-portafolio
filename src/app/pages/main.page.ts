@@ -133,10 +133,17 @@ export class MainPage {
         {
           img: '../../assets/itla.jpeg',
           title: 'Graduated from ITLA',
-          description: 'Esteemed as one of the most prestigious institutions in the Caribbean and Central America. This institution boasts ABET accreditation, a global benchmark of excellence.',
+          description: 'Esteemed as one of the most prestigious institutions in the Caribbean and Central America',
           link: 'https://example.com/more-about-innovation',
           icon: 'fa-solid fa-graduation-cap'
         },
+        {
+            img: '../../assets/itla.jpeg',
+            title: 'Internation accreditation',
+            description: 'ITLA boasts ABET accreditation, a global benchmark of excellence.',
+            link: 'https://example.com/more-about-innovation',
+            icon: 'fa-solid fa-award'
+          },
         {
           img: '../../assets/unibejpg.jpeg',
           title: 'UNIBE university',

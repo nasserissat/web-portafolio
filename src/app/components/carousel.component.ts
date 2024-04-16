@@ -10,7 +10,7 @@ import { Slider } from '../models/models';
             <div class="flex-none w-full text-center" *ngFor="let slide of slides">
                 <i class="{{slide.icon}} text-white text-7xl xl:text-9xl max-h-44 pt-8"></i>
                   <div class="text-2xl py-8">{{ slide.title }}</div>
-                  <div class="md:text-lg px-3">{{ slide.description }}</div>
+                  <div class="md:text-lg px-3 mb-16">{{ slide.description }}</div>
             </div>
           </div>
         </div>
@@ -22,8 +22,8 @@ import { Slider } from '../models/models';
             &#8594;
           </button>
         </div>
-        <div class="bottom-0 left-0 right-0 flex justify-center p-4 m-4">
-          <button *ngFor="let slide of slides; let i = index" class="h-2 w-2 rounded-full bg-gray-400 mx-2 p-1.5" [class.bg-blue-400]="i === currentSlideIndex" (click)="goToSlide(i)">
+        <div class="absolute bottom-0 left-0 right-0 flex justify-center p-4 z-30">
+          <button (click)="goToSlide(i)" *ngFor="let slide of slides; let i = index" class="h-2 w-2 rounded-full bg-gray-400 mx-2 p-2.5" [class.bg-blue-500]="i === currentSlideIndex">
           </button>
         </div>
       </div>
