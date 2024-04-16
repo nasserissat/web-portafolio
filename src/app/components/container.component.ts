@@ -25,7 +25,7 @@ import { Component } from "@angular/core";
                 <i class="fa-regular fa-user hover:text-black"></i>
                 <p class="hover:text-[#4f4f4f] hover:underline pl-3">Login</p>
               </div>
-              <button class="flex items-center bg-primary text-secondary font-bold py-4 px-6 rounded-full hover:bg-primary_hover duration-150 shine-effect hover:translate-x-3">
+              <button class="button primary py-4 px-6 cursor-pointer">
                 Contact me
                 <i class="fa-solid fa-play text-white pl-4"></i>
               </button>

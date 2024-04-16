@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#003366',
+        primary: '#2263B9',
         secondary: '#fff',
-        tertiary: '#160C21',
+        tertiary: '#1C1C1C',
         // On hover
         primary_hover: '#003366',
       },

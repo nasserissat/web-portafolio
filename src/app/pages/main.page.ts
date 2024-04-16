@@ -16,7 +16,7 @@ import { Slider } from "../models/models";
             </p>
             <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start lg:space-y-5">
                 <p class="flex font-medium hover:text-primary hover:translate-x-3 duration-300 cursor-pointer">About me <span><i class="fa-solid fa-play text-primary pl-4"></i></span></p>
-                <button class="text-secondary py-2 px-6 lg:py-2.5 lg:px-8 text-sm lg:text-lg bg-primary font-bold rounded-full hover:bg-primary_hover duration-150 shine-effect shadow-custom hover:scale-105">Hire me</button>
+                <button class="button primary font-semibold">Hire me</button>
             </div>
         </div>
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
@@ -24,39 +24,10 @@ import { Slider } from "../models/models";
         </div>
     </section>
 
-
-    <section id="about" class="grid bg-tertiary text-secondary h-screen py-8">
-    <app-carousel [slides]="customSlides"></app-carousel>
-
-        <div class="grid cols-span-12 items-center text-center space-y-6 p-5 lg:mx-[385px]">
-            <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
-            <p class="text-xs lg:text-lg text-center"> I am a graduate from ITLA, esteemed as one of <b>the most prestigious</b> institutions in the Caribbean and Central America.</p> 
-            <p class="text-xs lg:text-lg text-center">This institution boasts <b>ABET accreditation</b>, a global benchmark of excellence.</p>             
-            <div class="flex justify-center relative">
-                <img src="../../assets/itla.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-                <div class="flex justify-between absolute top-1/2 w-full">
-                    <i class="fa-solid fa-chevron-left chevron-class"></i>
-                    <i class="fa-solid fa-chevron-right chevron-class"></i>
-                </div>
-                <div class="carousel-indicators">
-                    <i class="fa-solid fa-circle text-red-200"></i>
-                    <i class="fa-solid fa-circle"></i>
-                    <i class="fa-solid fa-circle"></i>
-                </div>
-            </div>
-        </div>
-       
-        <p class="text-sm lg:text-lg text-center">
-         Want to see what's included? Check out the video down below:
-        </p>
-        <div class="grid justify-center items-center p-5 pt-0">
-            <img src="../../assets/background-main.jpeg" class=" lg:w-[800px] lg:h-[450px] rounded-lg">
-        </div>
-    </section>
-    <section id="about" class="grid bg-tertiary text-secondary h-screen">
+    <section id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden  mt-10">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
-            <h1 class="font-bold text-xl lg:text-4xl pb-4">Get to know a bit about me ;)</h1>
-            <p class="text-sm lg:text-lg text-center">
+            <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
+            <p class="md:text-lg text-center">
             I have collaborated on significant projects for prominent clients in my role as a junior developer, providing software solutions that positively impact their operations.
             </p>              
         </div>
@@ -74,6 +45,10 @@ import { Slider } from "../models/models";
             <h3>Proyects completed</h3>
             <h3>Technologies mastered</h3>
         </div> 
+        <app-carousel [slides]="customSlides"></app-carousel>
+    </section>
+    
+    <section id="portafolio" class="grid items-center justify-center h-screen">
         <div class="bg-white flex w-full px-5 max-h-24 h-24">
             <div class="flex items-center space-x-6 whitespace-nowrap animate-scroll">
                 <img  src="../../assets/angular-logo.png" class="w-1/3 max-h-12">
@@ -87,20 +62,43 @@ import { Slider } from "../models/models";
         <p class="text-sm lg:text-lg text-center">
          Want to see what's included? Check out the video down below:
         </p>
-    </section>
-
-    <section id="portafolio" class="grid items-center justify-center h-screen">
         <h1 class="font-bold text-xl">My projects</h1>
-        <div class="grid grid-cols-12">
-            <div class="grid col-span-12 xl:col-span-6 bg-primary rounded-lg p-4 m-2 text-center">
+        <div class="grid grid-cols-12 grid-flow-col">
+            <div class="grid col-span-12 xl:col-span-6 bg-primary text-secondary rounded-lg p-4 m-2 text-center">
                 <h1>titulo</h1>
                 <p>descripcion</p>
             </div>
-            <div class="grid col-span-12 xl:col-span-6 bg-primary rounded-lg p-4 m-2 text-center">
+            <div class="grid col-span-12 xl:col-span-6 bg-primary text-secondary rounded-lg p-4 m-2 text-center">
                 <h1>titulo</h1>
                 <p>descripcion</p>
             </div>
         </div>
+    </section>
+    <section id="contact" class="grid grid-cols-2 text-tertiary">
+        <h1 class="col-span-2 sub-title text-center">Contact me</h1>
+    <form class="flex flex-col justify-center items-center col-span-2">
+            <div class="mt-5 w-11/12">
+                <label for="name" class="font-semibold">Nombre</label>
+                <input id="name" name="name" type="text" placeholder="Nombre" class="input">
+            </div>
+            <div class="mt-5 w-11/12">
+                <label for="email" class="font-semibold">Email</label>
+                <input id="email" name="email" type="email" placeholder="Correo electrónico" class="input">
+            </div>
+            <div class="mt-5 w-11/12">
+                <label for="company" class="font-semibold">Compañía</label>
+                <input id="company" name="company" type="text" placeholder="Compañía" class="input">
+            </div>
+            <div class="mt-5 w-11/12">
+                <label for="tel" class="font-semibold">Teléfono</label>
+                <input id="tel" name="tel" type="tel" placeholder="Teléfono" class="input">
+            </div>
+            <div class="mt-5 w-11/12">
+                <label for="message" class="font-semibold">Mensaje</label>
+                <textarea id="message" name="message" placeholder="Mensaje" class="input"></textarea>
+            </div>
+          <button class="button primary text-white p-2 rounded-md mt-4 col-span-2">Enviar mensaje</button>
+        </form>
     </section>
     `,
 })
@@ -134,21 +132,14 @@ export class MainPage {
     customSlides: Slider[] = [
         {
           img: '../../assets/itla.jpeg',
-          title: 'My professional career',
-          description: 'I am a graduate from ITLA, esteemed as one of the most prestigious institutions in the Caribbean and Central America.',
+          title: 'Graduated from ITLA',
+          description: 'Esteemed as one of the most prestigious institutions in the Caribbean and Central America. This institution boasts ABET accreditation, a global benchmark of excellence.',
           link: 'https://example.com/more-about-innovation',
           icon: 'fa-solid fa-graduation-cap'
         },
         {
-          img: '../../assets/abet.jpeg',
-          title: 'Worldwide recognition."',
-          description: 'ITLA institution boasts ABET accreditation, a global benchmark of excellence.',
-          link: 'https://example.com/more-about-sustainability',
-          icon: 'fa-solid fa-earth-americas'
-        },
-        {
           img: '../../assets/unibejpg.jpeg',
-          title: 'Educación y Tecnología',
+          title: 'UNIBE university',
           description: 'Aprende sobre la integración de nuevas tecnologías en sistemas educativos modernos.',
           link: 'https://example.com/more-about-education',
           icon: 'fa-solid fa-microchip'
