@@ -17,7 +17,7 @@ export class TyperComponent implements OnInit, OnDestroy {
         ],
         typeSpeed: 38,
         backSpeed: 38,
-        loop: true
+        loop: true 
       };
   
       this.typed = new Typed('.elemento-typed', options);

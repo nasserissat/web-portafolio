@@ -47,6 +47,12 @@ import { Slider } from "../models/models";
         </div> 
         <app-carousel [slides]="customSlides"></app-carousel>
     </section>
+    <section class="flex flex-col relative w-full h-screen">
+        <div class="bg_color"></div>
+        <div class="wave w1"></div>
+        <div class="wave w2"></div>
+
+    </section>
     
     <section id="portafolio" class="grid items-center justify-center h-screen">
         <div class="bg-white flex w-full px-5 max-h-24 h-24">
@@ -101,6 +107,46 @@ import { Slider } from "../models/models";
         </form>
     </section>
     `,
+    styles: [`
+    .bg_color{
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        top: 0;
+        background: #fff;
+    }
+    .wave {
+    width: 110rem; /* Si tu SVG ya tiene dos olas una al lado de la otra */
+    height: 100%;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    background-image: url('../../assets/wave.svg'); /* Usa tu SVG con las dos olas */
+    background-position: 0 bottom;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ajusta si es necesario para que cubra el tamaño deseado */
+}
+
+.w1, .w2 {
+    animation: moveWave 1s linear infinite; /* Usar la misma animación para ambas olas asegura la continuidad */
+}
+@keyframes moveWave {
+    0% { background-position: 0% bottom; }
+    100% { background-position: 100% bottom; }
+}
+@keyframes moveWave2 {
+    0% { background-position: 0% bottom; }
+    100% { background-position: 100% bottom; }
+}
+
+
+@keyframes desplazamiento {
+    0%, 100% {
+        transform: translateY(10px);
+    }
+}
+
+    `]
 })
 export class MainPage {
     @ViewChildren(AnimatedNumberComponent) animatedNumbers!: QueryList<AnimatedNumberComponent>;
