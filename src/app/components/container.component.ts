@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     <div class="flex flex-col relative">      
       <!-- Contenido -->
    
-        <header class="flex w-full justify-between items-center z-10 -top-1 px-4 py-1 lg:py-5 bg-white h-[9vh] fixed">
+        <header class="flex w-full justify-between items-center z-30 -top-1 px-4 py-1 lg:py-5 bg-white h-[9vh] fixed">
             <img src="./../../assets/nissa.png" class="w-36 md:w-64 lg:w-96 lg:hidden"> 
             <div class="flex lg:hidden w-full justify-end">
               <i class="fa-solid fa-bars text-2xl cursor-pointer"></i>
@@ -27,7 +27,7 @@ import { Component } from "@angular/core";
               </button>
             </div>
           </header>
-          <main class="grid max-w-[100vw] h-screen flex-grow flex-1 overflow-y-auto overflow-x-hidden">
+          <main class="grid max-w-screen h-screen flex-grow flex-1 overflow-y-auto overflow-x-hidden pt-[9vh]">
               <router-outlet></router-outlet>
           </main>
           <footer class="mt-12 mb-2">

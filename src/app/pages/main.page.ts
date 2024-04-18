@@ -61,7 +61,7 @@ import { Slider } from "../models/models";
     </section>
     
     <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden">
-        <p class="title col-span-2 text-center text-tertiary mt-24">
+        <p class="title text-center text-tertiary mt-20">
         Technologies I master
         </p>
 

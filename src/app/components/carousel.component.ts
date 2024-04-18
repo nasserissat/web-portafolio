@@ -22,7 +22,7 @@ import { Slider } from '../models/models';
             &#8594;
           </button>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 flex justify-center p-4 z-30">
+        <div class="absolute bottom-0 left-0 right-0 flex justify-center p-4 z-20">
           <button (click)="goToSlide(i)" *ngFor="let slide of slides; let i = index" class="h-2 w-2 rounded-full bg-gray-400 mx-2 p-2.5" [class.bg-blue-500]="i === currentSlideIndex">
           </button>
         </div>
