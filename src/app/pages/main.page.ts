@@ -47,7 +47,18 @@ import { Slider } from "../models/models";
         </div> 
         <app-carousel [slides]="customSlides"></app-carousel>
     </section>
-    <section id="portafolio" class="wave-flex relative w-screen h-screen bg-primary pt-[9vh]">
+    <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh]">
+        <h1 class="sub-title text-secondary">Check out my latest projects!</h1>
+        <div class="flex-1 grid grid-cols-4 justify-between overflow-y-auto">
+            <div class="col-span-4 md:col-span-2 xl:col-span-1 p-5" *ngFor="let i of [1,2,3,4 ]">
+                <h1 class="sub-title text-white">Titulo</h1>
+                <img src="../../assets/unibejpg.jpeg" alt="akademic-app.png" class="rounded-t-xl">
+                <div class="bg-white h-44 w-full rounded-b-xl text-justify p-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque officia fugiat vero reprehenderit repudiandae at odit quod in vel reiciendis veritatis commodi ut, voluptatum earum aut quas iure magnam.
+                </div>
+            </div>
+
+        </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 	<defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
 	<g class="parallax">
