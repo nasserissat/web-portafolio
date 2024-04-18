@@ -45,20 +45,28 @@ import { Slider } from "../models/models";
             <h3>Proyects completed</h3>
             <h3>Technologies mastered</h3>
         </div> 
-        <app-carousel [slides]="customSlides"></app-carousel>
+        <app-carousel [slides]="customSlides">
+        <div class="flex-none w-full text-center" *ngFor="let slide of customSlides">
+                <i class="{{slide.icon}} text-white text-7xl xl:text-9xl max-h-44 pt-8"></i>
+                  <div class="text-2xl py-8">{{ slide.title }}</div>
+                  <div class="md:text-lg px-3 mb-16">{{ slide.description }}</div>
+            </div>
+        </app-carousel>
     </section>
     <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh]">
         <h1 class="sub-title text-secondary">Check out my latest projects!</h1>
-        <div class="flex-1 grid grid-cols-4 justify-between overflow-y-auto">
-            <div class="col-span-4 md:col-span-2 xl:col-span-1 p-5" *ngFor="let i of [1,2,3,4 ]">
-                <h1 class="sub-title text-white">Titulo</h1>
-                <img src="../../assets/unibejpg.jpeg" alt="akademic-app.png" class="rounded-t-xl">
-                <div class="bg-white h-44 w-full rounded-b-xl text-justify p-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque officia fugiat vero reprehenderit repudiandae at odit quod in vel reiciendis veritatis commodi ut, voluptatum earum aut quas iure magnam.
-                </div>
-            </div>
+        <div class="flex w-screen overflow-x-auto p-5 space-x-4  md:min-w-1/2 xl:min-w-1/3">
+  <div *ngFor="let project of projects" class="min-w-full max-h-full">
+    <div class="bg-white shadow-lg rounded-lg">
+      <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg w-full object-cover" style="height: 200px;">
+      <div class="p-4">
+        <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
+        <p class="text-gray-700 min-h-24">{{ project.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-        </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 	<defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
 	<g class="parallax">
@@ -291,4 +299,48 @@ export class MainPage {
           icon: 'fa-solid fa-microchip'
         }
       ];
+      projects: Slider[] = [
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Uno',
+            description: 'Descripción del Proyecto Uno. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            link: 'https://example.com/project-one',
+            icon: 'fa-solid fa-rocket'
+        },
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Dos',
+            description: 'Descripción del Proyecto Dos. Ipsum Lorem dolor sit amet, consectetur adipiscing elit.',
+            link: 'https://example.com/project-two',
+            icon: 'fa-solid fa-code'
+        },
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Tres',
+            description: 'Descripción del Proyecto Tres. Dolor sit amet, consectetur adipiscing elit lorem ipsum.',
+            link: 'https://example.com/project-three',
+            icon: 'fa-solid fa-palette'
+        },
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Cuatro',
+            description: 'Descripción del Proyecto Cuatro. Adipiscing elit consectetur, lorem ipsum dolor sit amet.',
+            link: 'https://example.com/project-four',
+            icon: 'fa-solid fa-users'
+        },
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Cinco',
+            description: 'Descripción del Proyecto Cinco. Consectetur adipiscing elit, dolor sit amet lorem ipsum.',
+            link: 'https://example.com/project-five',
+            icon: 'fa-solid fa-briefcase'
+        },
+        {
+            img: '../../assets/unibejpg.jpeg',
+            title: 'Proyecto Seis',
+            description: 'Descripción del Proyecto Seis. Elit consectetur adipiscing, lorem ipsum dolor sit amet.',
+            link: 'https://example.com/project-six',
+            icon: 'fa-solid fa-flask'
+        }
+    ];
 }
