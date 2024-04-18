@@ -60,19 +60,21 @@ import { Slider } from "../models/models";
 
     </section>
     
-    <section id="portafolio" class="flex flex-col max-w-screen overflow-x-hidden">
+    <section id="portafolio" class="flex flex-col w-screen max-w-screen !overflow-x-hidden">
         <p class="title col-span-2 text-center text-tertiary mt-20">
         Technologies I master
         </p>
 
-        <div class="logos flex w-screen overflow-x-hidden">
-            <div class="logos-slide flex">
+        <div class="logos">
+            <div class="logos-slide">
                 <img  src="../../assets/angular-logo.png">
                 <img  src="../../assets/tailwind-logo.png">
                 <img  src="../../assets/csharp-logo.png">
                 <img  src="../../assets/typescript.png">
                 <img  src="../../assets/sqlserver-logo.webp">
                 <img  src="../../assets/mysql-logo.png">
+            </div>
+            <div class="logos-slide">
                 <img  src="../../assets/angular-logo.png">
                 <img  src="../../assets/tailwind-logo.png">
                 <img  src="../../assets/csharp-logo.png">
@@ -123,11 +125,14 @@ import { Slider } from "../models/models";
 }
 .logos{
     padding: 60px 0;
+    overflow: hidden;
     white-space: nowrap;
+
+
 }
 .logos-slide{
+    display: inline-flex;
     animation: 5s slide infinite linear;
-    width: 100%;
    }
    .logos-slide img{
     height: 60px;
