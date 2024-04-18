@@ -24,7 +24,7 @@ import { Slider } from "../models/models";
         </div>
     </section>
 
-    <section id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden  mt-10">
+    <section id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden pt-[9vh]">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
             <p class="md:text-lg text-center">
@@ -47,7 +47,7 @@ import { Slider } from "../models/models";
         </div> 
         <app-carousel [slides]="customSlides"></app-carousel>
     </section>
-    <section id="portafolio" class="wave-flex relative w-screen h-screen bg-primary">
+    <section id="portafolio" class="wave-flex relative w-screen h-screen bg-primary pt-[9vh]">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 	<defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
 	<g class="parallax">
@@ -60,8 +60,8 @@ import { Slider } from "../models/models";
 
     </section>
     
-    <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden">
-        <p class="title text-center text-tertiary mt-20">
+    <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden pt-[9vh]">
+        <p class="title text-center text-tertiary">
         Technologies I master
         </p>
 
@@ -84,7 +84,7 @@ import { Slider } from "../models/models";
             </div>
         </div>        
     </section>
-    <section id="contact" class="flex flex-col text-tertiary justify-center items-center w-full">
+    <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full">
         <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Contact me</h1>
     <form class="flex flex-col justify-center items-center col-span-2 w-full lg:w-1/2">
             <div class="mt-5 w-11/12">
