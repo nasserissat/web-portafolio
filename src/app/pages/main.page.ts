@@ -127,8 +127,10 @@ import { Slider } from "../models/models";
     padding: 60px 0;
     overflow: hidden;
     white-space: nowrap;
-
-
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.logos:hover .logos-slide{
+    animation-play-state: paused;
 }
 .logos-slide{
     display: inline-flex;
