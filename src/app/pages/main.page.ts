@@ -60,19 +60,25 @@ import { Slider } from "../models/models";
 
     </section>
     
-    <section id="portafolio" class="grid grid-cols-2 grid-flow-row items-center h-screen justify-around">
-        <p class="title col-span-2 text-center text-tertiary">
-         Here are some technologies
+    <section id="portafolio" class="flex flex-col max-w-screen overflow-x-hidden">
+        <p class="title col-span-2 text-center text-tertiary mt-20">
+        Technologies I master
         </p>
 
-        <div class="bg-white flex w-screen px-5 col-span-2">
-            <div class="flex items-center space-x-6 whitespace-nowrap animate-scroll">
-                <img  src="../../assets/angular-logo.png" class="max-h-24">
-                <img  src="../../assets/tailwind-logo.png" class=" max-h-24">
-                <img  src="../../assets/csharp-logo.png" class=" max-h-24">
-                <img  src="../../assets/typescript.png" class=" max-h-24">
-                <img  src="../../assets/sqlserver-logo.webp" class=" max-h-12">
-                <img  src="../../assets/mysql-logo.png" class=" max-h-24">
+        <div class="logos flex w-screen overflow-x-hidden">
+            <div class="logos-slide flex">
+                <img  src="../../assets/angular-logo.png">
+                <img  src="../../assets/tailwind-logo.png">
+                <img  src="../../assets/csharp-logo.png">
+                <img  src="../../assets/typescript.png">
+                <img  src="../../assets/sqlserver-logo.webp">
+                <img  src="../../assets/mysql-logo.png">
+                <img  src="../../assets/angular-logo.png">
+                <img  src="../../assets/tailwind-logo.png">
+                <img  src="../../assets/csharp-logo.png">
+                <img  src="../../assets/typescript.png">
+                <img  src="../../assets/sqlserver-logo.webp">
+                <img  src="../../assets/mysql-logo.png">
             </div>
         </div>
         <h1 class="font-bold text-xl col-span-2 text-center">My projects</h1>
@@ -106,13 +112,27 @@ import { Slider } from "../models/models";
     </section>
     `,
     styles: [`
-    .bg_color{
-        width: 100%;
-        height: 70%;
-        position: absolute;
-        top: 0;
-        background: #fff;
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
     }
+    to{
+        transform: translateX(-100%);
+    }
+}
+.logos{
+    padding: 60px 0;
+    white-space: nowrap;
+}
+.logos-slide{
+    animation: 5s slide infinite linear;
+    width: 100%;
+   }
+   .logos-slide img{
+    height: 60px;
+    margin: 0 40px;
+   }
 
 .wave-flex {
     display: -webkit-box;
