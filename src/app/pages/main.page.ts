@@ -82,13 +82,11 @@ import { Slider } from "../models/models";
                 <img  src="../../assets/sqlserver-logo.webp">
                 <img  src="../../assets/mysql-logo.png">
             </div>
-        </div>
-        <h1 class="font-bold text-xl col-span-2 text-center">My projects</h1>
-        
+        </div>        
     </section>
-    <section id="contact" class="grid grid-cols-2 text-tertiary">
-        <h1 class="col-span-2 sub-title text-center">Contact me</h1>
-    <form class="flex flex-col justify-center items-center col-span-2">
+    <section id="contact" class="flex flex-col text-tertiary justify-center items-center w-full">
+        <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Contact me</h1>
+    <form class="flex flex-col justify-center items-center col-span-2 w-full lg:w-1/2">
             <div class="mt-5 w-11/12">
                 <label for="name" class="font-semibold">Nombre</label>
                 <input id="name" name="name" type="text" placeholder="Nombre" class="input">

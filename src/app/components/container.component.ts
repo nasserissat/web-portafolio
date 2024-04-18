@@ -31,9 +31,17 @@ import { Component } from "@angular/core";
               </button>
             </div>
           </header>
-          <main class="grid max-w-[100vw] h-screen flex-grow flex-1 overflow-y-auto">
+          <main class="grid max-w-[100vw] h-screen flex-grow flex-1 overflow-y-auto overflow-x-hidden">
               <router-outlet></router-outlet>
           </main>
+          <footer class="mt-12 mb-2">
+            <div class="md:flex justify-center items-center space-x-4 text-center">
+              <p class="text-[#5A5A5A]">Made with ❤️ by <a href="https://www.linkedin.com/in/eduardo-alejandro-ramirez-ramirez-7b1b3b1b4/" class="text-primary">Nasser Issa </a></p>
+              <span>
+                © Nissa - All rights reserved.
+              </span>
+            </div>
+          </footer>
       </div>
   `
 })
