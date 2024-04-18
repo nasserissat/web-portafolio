@@ -47,38 +47,36 @@ import { Slider } from "../models/models";
         </div> 
         <app-carousel [slides]="customSlides"></app-carousel>
     </section>
-    <section class="flex flex-col relative w-full h-screen">
-        <div class="bg_color"></div>
-        <div class="wave w1"></div>
-        <div class="wave w2"></div>
+    <section class="wave-flex relative w-screen h-screen bg-primary">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+	<defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+	<g class="parallax">
+		<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+		<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+		<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+		<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+	</g>
+</svg>
 
     </section>
     
-    <section id="portafolio" class="grid items-center justify-center h-screen">
-        <div class="bg-white flex w-full px-5 max-h-24 h-24">
-            <div class="flex items-center space-x-6 whitespace-nowrap animate-scroll">
-                <img  src="../../assets/angular-logo.png" class="w-1/3 max-h-12">
-                <img  src="../../assets/tailwind-logo.png" class="w-1/3 max-h-12">
-                <img  src="../../assets/csharp-logo.png" class="w-1/3 max-h-12">
-                <img  src="../../assets/typescript.png" class="w-1/3 max-h-12">
-                <img  src="../../assets/sqlserver-logo.webp" class="w-1/3 max-h-12">
-                <img  src="../../assets/mysql-logo.png" class="w-1/3 max-h-12">
-            </div>
-        </div>
-        <p class="text-sm lg:text-lg text-center">
-         Want to see what's included? Check out the video down below:
+    <section id="portafolio" class="grid grid-cols-2 grid-flow-row items-center h-screen justify-around">
+        <p class="title col-span-2 text-center text-tertiary">
+         Here are some technologies
         </p>
-        <h1 class="font-bold text-xl">My projects</h1>
-        <div class="grid grid-cols-12 grid-flow-col">
-            <div class="grid col-span-12 xl:col-span-6 bg-primary text-secondary rounded-lg p-4 m-2 text-center">
-                <h1>titulo</h1>
-                <p>descripcion</p>
-            </div>
-            <div class="grid col-span-12 xl:col-span-6 bg-primary text-secondary rounded-lg p-4 m-2 text-center">
-                <h1>titulo</h1>
-                <p>descripcion</p>
+
+        <div class="bg-white flex w-screen px-5 col-span-2">
+            <div class="flex items-center space-x-6 whitespace-nowrap animate-scroll">
+                <img  src="../../assets/angular-logo.png" class="max-h-24">
+                <img  src="../../assets/tailwind-logo.png" class=" max-h-24">
+                <img  src="../../assets/csharp-logo.png" class=" max-h-24">
+                <img  src="../../assets/typescript.png" class=" max-h-24">
+                <img  src="../../assets/sqlserver-logo.webp" class=" max-h-12">
+                <img  src="../../assets/mysql-logo.png" class=" max-h-24">
             </div>
         </div>
+        <h1 class="font-bold text-xl col-span-2 text-center">My projects</h1>
+        
     </section>
     <section id="contact" class="grid grid-cols-2 text-tertiary">
         <h1 class="col-span-2 sub-title text-center">Contact me</h1>
@@ -115,34 +113,93 @@ import { Slider } from "../models/models";
         top: 0;
         background: #fff;
     }
-    .wave {
-    width: 110rem; /* Si tu SVG ya tiene dos olas una al lado de la otra */
-    height: 100%;
+
+.wave-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+}
+    .waves {
     position: absolute;
-    top: 150px;
-    left: 0;
-    background-image: url('../../assets/wave.svg'); /* Usa tu SVG con las dos olas */
-    background-position: 0 bottom;
-    background-repeat: no-repeat;
-    background-size: cover; /* Ajusta si es necesario para que cubra el tamaño deseado */
+    width: 100%;
+    height: 15vh;
+    min-height: 280px;
+    max-height: 400px;
+    bottom: 0;
 }
 
-.w1, .w2 {
-    animation: moveWave 1s linear infinite; /* Usar la misma animación para ambas olas asegura la continuidad */
-}
-@keyframes moveWave {
-    0% { background-position: 0% bottom; }
-    100% { background-position: 100% bottom; }
-}
-@keyframes moveWave2 {
-    0% { background-position: 0% bottom; }
-    100% { background-position: 100% bottom; }
+.parallax > use {
+    -webkit-animation: moveForever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+            animation: moveForever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
+.parallax > use:nth-child(1) {
+    -webkit-animation-delay: -2s;
+            animation-delay: -2s;
+    -webkit-animation-duration: 5s;
+            animation-duration: 5s;
+}
 
-@keyframes desplazamiento {
-    0%, 100% {
-        transform: translateY(10px);
+.parallax > use:nth-child(2) {
+    -webkit-animation-delay: -3s;
+            animation-delay: -3s;
+    -webkit-animation-duration: 6s;
+            animation-duration: 6s;
+}
+
+.parallax > use:nth-child(3) {
+    -webkit-animation-delay: -4s;
+            animation-delay: -4s;
+    -webkit-animation-duration: 8s;
+            animation-duration: 8s;
+}
+
+.parallax > use:nth-child(4) {
+    -webkit-animation-delay: -5s;
+            animation-delay: -5s;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+}
+
+@-webkit-keyframes moveForever {
+    0% {
+        -webkit-transform: translate3d(-90px, 0, 0);
+                transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(85px, 0, 0);
+                transform: translate3d(85px, 0, 0);
+    }
+}
+
+@keyframes moveForever {
+    0% {
+        -webkit-transform: translate3d(-90px, 0, 0);
+                transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(85px, 0, 0);
+                transform: translate3d(85px, 0, 0);
+    }
+}
+
+@media (max-width : 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    .content {
+        height: 30vh;
+    }
+    .waves {
+        height: 140px;
+        min-height: 140px;
     }
 }
 
