@@ -1,6 +1,7 @@
 import { Component, ElementRef, Renderer2, AfterViewInit, ViewChild, ViewChildren, QueryList } from "@angular/core";
 import { AnimatedNumberComponent } from "../components/animate-number.page";
 import { Slider } from "../models/models";
+import { CarouselComponent } from "../components/carousel.component";
 @Component({
     selector: 'main-page',
     template: `
@@ -24,7 +25,7 @@ import { Slider } from "../models/models";
         </div>
     </section>
 
-    <section id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden pt-[9vh]">
+    <section #aboutSection id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden pt-[9vh]">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
             <p class="md:text-lg text-center">
@@ -45,7 +46,11 @@ import { Slider } from "../models/models";
             <h3>Proyects completed</h3>
             <h3>Technologies mastered</h3>
         </div> 
-        <app-carousel [slides]="customSlides">
+        <app-carousel
+         #carouselComponent
+        [slides]="customSlides"
+        (mouseenter)="stopCarousel()"
+        (mouseleave)="startCarousel()">
         <div class="flex-none w-full text-center" *ngFor="let slide of customSlides">
                 <i class="{{slide.icon}} text-white text-7xl xl:text-9xl max-h-44 pt-8"></i>
                   <div class="text-2xl py-8">{{ slide.title }}</div>
@@ -55,7 +60,7 @@ import { Slider } from "../models/models";
     </section>
     <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh]">
         <h1 class="sub-title text-secondary">Check out my latest projects!</h1>
-        <div class="flex w-screen overflow-x-auto p-5 space-x-4  md:min-w-1/2 xl:min-w-1/3">
+        <div class="flex-1 w-screen overflow-x-auto p-5 space-x-4  md:min-w-1/2 xl:min-w-1/3">
   <div *ngFor="let project of projects" class="min-w-full max-h-full">
     <div class="bg-white shadow-lg rounded-lg">
       <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg w-full object-cover" style="height: 200px;">
@@ -117,10 +122,6 @@ import { Slider } from "../models/models";
             <div class="mt-5 w-11/12">
                 <label for="company" class="font-semibold">Compañía</label>
                 <input id="company" name="company" type="text" placeholder="Compañía" class="input">
-            </div>
-            <div class="mt-5 w-11/12">
-                <label for="tel" class="font-semibold">Teléfono</label>
-                <input id="tel" name="tel" type="tel" placeholder="Teléfono" class="input">
             </div>
             <div class="mt-5 w-11/12">
                 <label for="message" class="font-semibold">Mensaje</label>
@@ -251,11 +252,16 @@ import { Slider } from "../models/models";
 })
 export class MainPage {
     @ViewChildren(AnimatedNumberComponent) animatedNumbers!: QueryList<AnimatedNumberComponent>;
+    @ViewChild('carouselComponent') carouselComponent: CarouselComponent | undefined;
+    @ViewChild('aboutSection', { read: ElementRef }) aboutSection: ElementRef | undefined;
+    private intervalId: any = null;
 
     constructor(private elRef: ElementRef, private renderer: Renderer2) {}
     ngAfterViewInit(): void {
         if (typeof window !== 'undefined') {
-            this.renderer.listen('window', 'scroll', () => {            
+            this.renderer.listen('window', 'scroll', () => {    
+                this.checkVisibilityAndSlide();
+
                 this.animatedNumbers.forEach(animNumber => {
                     const animatedNumberElement = animNumber.elRef.nativeElement;
                     const rect = animatedNumberElement.getBoundingClientRect();
@@ -271,6 +277,32 @@ export class MainPage {
             });
         }        
     }
+    checkVisibilityAndSlide(): void {
+        if (!this.carouselComponent || !this.aboutSection) {
+            return;
+        }
+
+        const rect = this.aboutSection.nativeElement.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            this.startCarousel()
+        } else {
+            this.stopCarousel();
+        }
+    }
+    startCarousel() {
+        if (!this.intervalId) { // Comprueba si ya hay un intervalo corriendo
+          this.intervalId = window.setInterval(() => {
+            this.carouselComponent!.goToNextSlide();
+        }, 3000); // Ajusta el tiempo según sea necesario
+        }
+      }
+    
+      stopCarousel() {
+        if (this.intervalId) {
+          clearInterval(this.intervalId);
+          this.intervalId = null;
+        }
+      }
     numbersToAnimate = [
         { maxValue: 2, duration: 2000, color: "text-secondary" },
         { maxValue: 6, duration: 2000, color: "text-secondary" },
@@ -300,47 +332,47 @@ export class MainPage {
         }
       ];
       projects: Slider[] = [
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Uno',
-            description: 'Descripción del Proyecto Uno. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            link: 'https://example.com/project-one',
-            icon: 'fa-solid fa-rocket'
-        },
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Dos',
-            description: 'Descripción del Proyecto Dos. Ipsum Lorem dolor sit amet, consectetur adipiscing elit.',
-            link: 'https://example.com/project-two',
-            icon: 'fa-solid fa-code'
-        },
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Tres',
-            description: 'Descripción del Proyecto Tres. Dolor sit amet, consectetur adipiscing elit lorem ipsum.',
-            link: 'https://example.com/project-three',
-            icon: 'fa-solid fa-palette'
-        },
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Cuatro',
-            description: 'Descripción del Proyecto Cuatro. Adipiscing elit consectetur, lorem ipsum dolor sit amet.',
-            link: 'https://example.com/project-four',
-            icon: 'fa-solid fa-users'
-        },
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Cinco',
-            description: 'Descripción del Proyecto Cinco. Consectetur adipiscing elit, dolor sit amet lorem ipsum.',
-            link: 'https://example.com/project-five',
-            icon: 'fa-solid fa-briefcase'
-        },
-        {
-            img: '../../assets/unibejpg.jpeg',
-            title: 'Proyecto Seis',
-            description: 'Descripción del Proyecto Seis. Elit consectetur adipiscing, lorem ipsum dolor sit amet.',
-            link: 'https://example.com/project-six',
-            icon: 'fa-solid fa-flask'
-        }
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Uno',
+        //     description: 'Descripción del Proyecto Uno. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        //     link: 'https://example.com/project-one',
+        //     icon: 'fa-solid fa-rocket'
+        // },
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Dos',
+        //     description: 'Descripción del Proyecto Dos. Ipsum Lorem dolor sit amet, consectetur adipiscing elit.',
+        //     link: 'https://example.com/project-two',
+        //     icon: 'fa-solid fa-code'
+        // },
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Tres',
+        //     description: 'Descripción del Proyecto Tres. Dolor sit amet, consectetur adipiscing elit lorem ipsum.',
+        //     link: 'https://example.com/project-three',
+        //     icon: 'fa-solid fa-palette'
+        // },
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Cuatro',
+        //     description: 'Descripción del Proyecto Cuatro. Adipiscing elit consectetur, lorem ipsum dolor sit amet.',
+        //     link: 'https://example.com/project-four',
+        //     icon: 'fa-solid fa-users'
+        // },
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Cinco',
+        //     description: 'Descripción del Proyecto Cinco. Consectetur adipiscing elit, dolor sit amet lorem ipsum.',
+        //     link: 'https://example.com/project-five',
+        //     icon: 'fa-solid fa-briefcase'
+        // },
+        // {
+        //     img: '../../assets/unibejpg.jpeg',
+        //     title: 'Proyecto Seis',
+        //     description: 'Descripción del Proyecto Seis. Elit consectetur adipiscing, lorem ipsum dolor sit amet.',
+        //     link: 'https://example.com/project-six',
+        //     icon: 'fa-solid fa-flask'
+        // }
     ];
 }

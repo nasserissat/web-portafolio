@@ -3,7 +3,7 @@ import { Component, Input } from "@angular/core";
 @Component({
   selector: 'app-carousel',
   template: `
-    <div class="relative" *ngIf="slides">
+    <div class="relative cursor-pointer"  *ngIf="slides">
       <div class="flex overflow-hidden">
         <div class="flex transition-transform ease-in-out duration-300" [style.transform]="'translateX(-' + currentSlideIndex * 100 + '%)'">
           <ng-content></ng-content>
@@ -21,7 +21,7 @@ import { Component, Input } from "@angular/core";
         <button *ngFor="let slide of slides; let i = index" 
                 (click)="goToSlide(i)" 
                 class="h-2 w-2 rounded-full bg-gray-400 mx-2 p-2.5" 
-                [class.bg-blue-500]="i === currentSlideIndex">
+                [class.bg-primary]="i === currentSlideIndex">
         </button>
       </div>
     </div>
@@ -47,4 +47,5 @@ export class CarouselComponent {
       this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length;
     }
   }
+  
 }
