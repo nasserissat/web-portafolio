@@ -16,8 +16,10 @@ import { CarouselComponent } from "../components/carousel.component";
             I love to code things from scratch, and enjoy bringing ideas to life in the browser.
             </p>
             <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start lg:space-y-5">
-                <p class="flex font-medium hover:text-primary hover:translate-x-3 duration-300 cursor-pointer">About me <span><i class="fa-solid fa-play text-primary pl-4"></i></span></p>
-                <button class="button primary font-semibold">Hire me</button>
+                <p (click)="scrollTo('about')" class="flex font-medium hover:text-primary items-center justify-center hover:translate-x-3 duration-300 cursor-pointer">About me <span><i class="fa-solid fa-play text-primary hover:text-primary hover:text-opacity-3 p-4 rotate-90"></i></span></p>
+                <button (click)="scrollTo('contact')" class="button primary font-semibold">
+                Hire me
+            </button>
             </div>
         </div>
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
@@ -109,25 +111,25 @@ import { CarouselComponent } from "../components/carousel.component";
         </div>        
     </section>
     <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full">
-        <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Contact me</h1>
-    <form class="flex flex-col justify-center items-center col-span-2 w-full lg:w-1/2">
-            <div class="mt-5 w-11/12">
-                <label for="name" class="font-semibold">Nombre</label>
-                <input id="name" name="name" type="text" placeholder="Nombre" class="input">
+        <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Let's get in touch ;) </h1>
+    <form class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
+            <div class="col-span-2 mt-5 w-11/12">
+                <label for="name" class="font-semibold">Name</label>
+                <input id="name" name="name" type="text" placeholder="Name" class="input">
             </div>
-            <div class="mt-5 w-11/12">
+            <div class="col-span-2 mt-5 w-11/12">
+                <label for="company" class="font-semibold">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company" class="input">
+            </div>
+            <div class="col-span-2 mt-5 w-11/12">
                 <label for="email" class="font-semibold">Email</label>
-                <input id="email" name="email" type="email" placeholder="Correo electrónico" class="input">
+                <input id="email" name="email" type="email" placeholder="Email" class="input">
             </div>
-            <div class="mt-5 w-11/12">
-                <label for="company" class="font-semibold">Compañía</label>
-                <input id="company" name="company" type="text" placeholder="Compañía" class="input">
+            <div class="col-span-2 mt-5 w-11/12">
+                <label for="message" class="font-semibold">Message</label>
+                <textarea id="message" name="message" placeholder="Message" class="input"></textarea>
             </div>
-            <div class="mt-5 w-11/12">
-                <label for="message" class="font-semibold">Mensaje</label>
-                <textarea id="message" name="message" placeholder="Mensaje" class="input"></textarea>
-            </div>
-          <button class="button primary text-white p-2 rounded-md mt-4 col-span-2">Enviar mensaje</button>
+          <button type="submit" class="button primary text-white p-2 rounded-md mt-4 col-span-2">Send</button>
         </form>
     </section>
     `,
@@ -302,6 +304,10 @@ export class MainPage {
           clearInterval(this.intervalId);
           this.intervalId = null;
         }
+      }
+      scrollTo(elementId: string): void {
+        const element = document.getElementById(elementId);
+        element?.scrollIntoView({ behavior: 'smooth' });
       }
     numbersToAnimate = [
         { maxValue: 2, duration: 2000, color: "text-secondary" },
