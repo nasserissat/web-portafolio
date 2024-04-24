@@ -97,42 +97,11 @@ import { ToastrService } from 'ngx-toastr';
 
         <div class="slider">
             <div class="slide-track">
-                <div class="slide">
-                    <img  src="../../assets/angular-logo.png" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/tailwind-logo.png" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/netcore-logo.png" class="img">                    
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/typescript.png" class="img">                
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/sqlserver-logo.webp" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/mysql-logo.png" class="img">                    
-                </div>
-            <!-- repeat-imgages-->
-            <div class="slide">
-                    <img  src="../../assets/angular-logo.png" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/tailwind-logo.png" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/netcore-logo.png" class="img">                    
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/typescript.png" class="img">                
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/sqlserver-logo.webp" class="img">
-                </div>
-                <div class="slide">
-                    <img  src="../../assets/mysql-logo.png" class="img">                    
+                <div class="slide" *ngFor="let tech of technologies; let i = index">
+                    <img [src]="tech.imgSrc" class="img">
+                 </div>
+                <div class="slide" *ngFor="let tech of technologies; let i = index">
+                    <img [src]="tech.imgSrc" class="img">
                 </div>
             </div>
         </div>        
@@ -425,4 +394,13 @@ export class MainPage {
         }
       ];
       projects: Slider[] = [];
+      technologies = [
+        { imgSrc: '../../assets/angular-logo.png', name: 'Angular' },
+        { imgSrc: '../../assets/tailwind-logo.png', name: 'Tailwind CSS' },
+        { imgSrc: '../../assets/netcore-logo.png', name: '.NET Core' },
+        { imgSrc: '../../assets/typescript.png', name: 'TypeScript' },
+        { imgSrc: '../../assets/sqlserver-logo.webp', name: 'SQL Server' },
+        { imgSrc: '../../assets/mysql-logo.png', name: 'MySQL' }
+      ];
+      
 }
