@@ -7,3 +7,9 @@ export type Slider = {
     link?: string
     icon?: string
 }
+export type ContactData = {
+    name: string
+    company: string
+    email: string
+    message: string
+}

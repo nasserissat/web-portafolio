@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
       <!-- Contenido -->
    
         <header class="flex w-full justify-between items-center z-30 -top-1 px-4 py-1 lg:py-5 bg-white h-[9vh] fixed">
-            <img src="./../../assets/nissa.png" class="w-36 md:w-64 lg:w-96 lg:hidden"> 
+            <img  (click)="scrollTo('home')" src="./../../assets/nissa.png" class="w-36 md:w-64 lg:w-96 lg:hidden"> 
             <div class="flex lg:hidden w-full justify-end">
               <i (click)="burgerMenuIsActive = true" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
             </div>

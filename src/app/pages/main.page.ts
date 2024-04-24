@@ -1,11 +1,13 @@
 import { Component, ElementRef, Renderer2, AfterViewInit, ViewChild, ViewChildren, QueryList } from "@angular/core";
 import { AnimatedNumberComponent } from "../components/animate-number.page";
-import { Slider } from "../models/models";
+import { ContactData, Slider } from "../models/models";
 import { CarouselComponent } from "../components/carousel.component";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DataService } from "../services/data.service";
 @Component({
     selector: 'main-page',
     template: `
-    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen lg:p-24 lg:pt-4 px-5">
+    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
@@ -112,22 +114,26 @@ import { CarouselComponent } from "../components/carousel.component";
     </section>
     <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full">
         <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Let's get in touch ;) </h1>
-    <form class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
+    <form  (ngSubmit)="save()" [formGroup]="contact_form" class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
             <div class="col-span-2 mt-5 w-11/12">
                 <label for="name" class="font-semibold">Name</label>
-                <input id="name" name="name" type="text" placeholder="Name" class="input">
+                <input formControlName="name" id="name" name="name" type="text" placeholder="Name" class="input">
+                <span *ngIf="contact_form.get('name')?.hasError('required') && contact_form.get('name')?.touched" class="text-red-500">This field is required</span>
             </div>
             <div class="col-span-2 mt-5 w-11/12">
                 <label for="company" class="font-semibold">Company</label>
-                <input id="company" name="company" type="text" placeholder="Company" class="input">
+                <input formControlName="company" id="company" name="company" type="text" placeholder="Company" class="input">
+                <span *ngIf="contact_form.get('company')?.hasError('required') && contact_form.get('company')?.touched" class="text-red-500">This field is required</span>
             </div>
             <div class="col-span-2 mt-5 w-11/12">
                 <label for="email" class="font-semibold">Email</label>
-                <input id="email" name="email" type="email" placeholder="Email" class="input">
+                <input formControlName="email" id="email" name="email" type="email" placeholder="Email" class="input">
+                <span *ngIf="contact_form.get('email')?.hasError('required') && contact_form.get('email')?.touched" class="text-red-500">This field is required</span>
             </div>
             <div class="col-span-2 mt-5 w-11/12">
                 <label for="message" class="font-semibold">Message</label>
-                <textarea id="message" name="message" placeholder="Message" class="input"></textarea>
+                <textarea formControlName="message" id="message" name="message" placeholder="Message" class="input h-48" aria-colspan="12"></textarea>
+                <span *ngIf="contact_form.get('message')?.hasError('required') && contact_form.get('message')?.touched" class="text-red-500">This field is required</span>
             </div>
           <button type="submit" class="button primary text-white p-2 rounded-md mt-4 col-span-2">Send</button>
         </form>
@@ -257,8 +263,40 @@ export class MainPage {
     @ViewChild('carouselComponent') carouselComponent: CarouselComponent | undefined;
     @ViewChild('aboutSection', { read: ElementRef }) aboutSection: ElementRef | undefined;
     private intervalId: any = null;
+    contact_form: FormGroup
+    constructor(
+        private fb: FormBuilder,
+        private renderer: Renderer2,
+        private data: DataService){
 
-    constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+        this.contact_form = this.fb.group({
+            name: ['', Validators.required],
+            company: ['', Validators.required],
+            email: ['', Validators.required],
+            message: ['', Validators.required],
+          })
+    }
+
+    save(){
+        console.log(this.contact_form.value)
+        let contact_data: ContactData = { 
+            name: this.contact_form.get('name')?.value,
+            company: this.contact_form.get('company')?.value,
+            email: this.contact_form.get('email')?.value,
+            message: this.contact_form.get('message')?.value,
+           };
+           if(!this.contact_form.valid){
+            alert('Please complete all required fields')
+            return;
+         }
+         this.data.summitContactInfo(contact_data).subscribe(() => {
+            // this.toastr.success('Your email has been send successfully!', 'Message send!!')
+            this.contact_form.reset();
+          }, (error: any) => {
+            // this.toastr.error('Error: ' + error.error.error, 'The message could not be send!')
+            console.log(error)
+          });
+    }
     ngAfterViewInit(): void {
         if (typeof window !== 'undefined') {
             this.renderer.listen('window', 'scroll', () => {    
@@ -337,48 +375,5 @@ export class MainPage {
           icon: 'fa-solid fa-microchip'
         }
       ];
-      projects: Slider[] = [
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Uno',
-        //     description: 'Descripción del Proyecto Uno. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        //     link: 'https://example.com/project-one',
-        //     icon: 'fa-solid fa-rocket'
-        // },
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Dos',
-        //     description: 'Descripción del Proyecto Dos. Ipsum Lorem dolor sit amet, consectetur adipiscing elit.',
-        //     link: 'https://example.com/project-two',
-        //     icon: 'fa-solid fa-code'
-        // },
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Tres',
-        //     description: 'Descripción del Proyecto Tres. Dolor sit amet, consectetur adipiscing elit lorem ipsum.',
-        //     link: 'https://example.com/project-three',
-        //     icon: 'fa-solid fa-palette'
-        // },
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Cuatro',
-        //     description: 'Descripción del Proyecto Cuatro. Adipiscing elit consectetur, lorem ipsum dolor sit amet.',
-        //     link: 'https://example.com/project-four',
-        //     icon: 'fa-solid fa-users'
-        // },
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Cinco',
-        //     description: 'Descripción del Proyecto Cinco. Consectetur adipiscing elit, dolor sit amet lorem ipsum.',
-        //     link: 'https://example.com/project-five',
-        //     icon: 'fa-solid fa-briefcase'
-        // },
-        // {
-        //     img: '../../assets/unibejpg.jpeg',
-        //     title: 'Proyecto Seis',
-        //     description: 'Descripción del Proyecto Seis. Elit consectetur adipiscing, lorem ipsum dolor sit amet.',
-        //     link: 'https://example.com/project-six',
-        //     icon: 'fa-solid fa-flask'
-        // }
-    ];
+      projects: Slider[] = [];
 }
