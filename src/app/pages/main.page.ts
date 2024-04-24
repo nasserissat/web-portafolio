@@ -4,6 +4,8 @@ import { ContactData, Slider } from "../models/models";
 import { CarouselComponent } from "../components/carousel.component";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataService } from "../services/data.service";
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
     selector: 'main-page',
     template: `
@@ -267,7 +269,8 @@ export class MainPage {
     constructor(
         private fb: FormBuilder,
         private renderer: Renderer2,
-        private data: DataService){
+        private data: DataService,
+        private toastr: ToastrService){
 
         this.contact_form = this.fb.group({
             name: ['', Validators.required],
@@ -286,14 +289,14 @@ export class MainPage {
             message: this.contact_form.get('message')?.value,
            };
            if(!this.contact_form.valid){
-            alert('Please complete all required fields')
+            this.toastr.error('Please complete all required fields', ' Submission Failed')
             return;
          }
          this.data.summitContactInfo(contact_data).subscribe(() => {
-            // this.toastr.success('Your email has been send successfully!', 'Message send!!')
+            this.toastr.success('Your email has been send successfully!', 'Message send!!')
             this.contact_form.reset();
           }, (error: any) => {
-            // this.toastr.error('Error: ' + error.error.error, 'The message could not be send!')
+            this.toastr.error('Error: ' + error.error.error, 'The message could not be send!')
             console.log(error)
           });
     }
@@ -330,10 +333,10 @@ export class MainPage {
         }
     }
     startCarousel() {
-        if (!this.intervalId) { // Comprueba si ya hay un intervalo corriendo
+        if (!this.intervalId) { 
           this.intervalId = window.setInterval(() => {
             this.carouselComponent!.goToNextSlide();
-        }, 3000); // Ajusta el tiempo según sea necesario
+        }, 3000);
         }
       }
     
