@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
     selector: 'main-page',
     template: `
-    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5">
+    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5 pt-[9vh]">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">

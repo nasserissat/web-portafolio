@@ -9,7 +9,7 @@ import { Component, Input } from "@angular/core";
           <ng-content></ng-content>
         </div>
       </div>
-      <div class="absolute inset-0 hidden md:flex items-center justify-between px-4">
+      <div class="absolute inset-0 hidden lg:flex items-center justify-between px-4">
         <button class="carousel-indicators" (click)="goToPreviousSlide()">
           &#8592;
         </button>
