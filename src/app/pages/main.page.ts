@@ -97,10 +97,28 @@ import { ToastrService } from 'ngx-toastr';
 
         <div class="slider">
             <div class="slide-track">
-                <div class="slide" *ngFor="let tech of technologies; let i = index">
+                <div class="slide" *ngFor="let tech of technologies">
                     <img [src]="tech.imgSrc" class="img">
                  </div>
-                <div class="slide" *ngFor="let tech of technologies; let i = index">
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                </div>
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                </div>
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                </div>
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                 </div>
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                </div>
+                <div class="slide" *ngFor="let tech of technologies">
+                    <img [src]="tech.imgSrc" class="img">
+                </div>
+                <div class="slide" *ngFor="let tech of technologies">
                     <img [src]="tech.imgSrc" class="img">
                 </div>
             </div>
@@ -146,18 +164,18 @@ import { ToastrService } from 'ngx-toastr';
     }
     .slide-track{
         display: flex;
-        width: calc(250px * 12);
-        animation: scroll 40s linear infinite;
+        width: calc(250px * 48);
+        animation: scroll 160s linear infinite;
     }
     .slide-track:hover{
         animation-play-state: paused;
     }
     .slide{
         height: 200px;
-        width: 250px;
-        display: flex;
+        width: 100%;
+        display: grid;
         align-items: center;
-        padding: 15px;    
+        padding: 20px;    
     }
     .slider::before,
     .slider::after {
@@ -181,7 +199,7 @@ import { ToastrService } from 'ngx-toastr';
             transform: translateX(0);
         }
         100%{
-            transform: translateX(calc(-250px * 12));
+            transform: translateX(calc(-250px * 48));
         }
     }
 .wave-flex {

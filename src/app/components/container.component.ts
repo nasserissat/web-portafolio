@@ -38,7 +38,7 @@ import { Component } from "@angular/core";
                 </a>
             </li>
           </ul>
-          <main class="grid max-w-screen h-screen flex-grow flex-1 overflow-y-auto overflow-x-hidden pt-[9vh]">
+          <main class="grid max-w-screen h-screen flex-grow flex-1 overflow-y-auto overflow-x-hidden">
               <router-outlet></router-outlet>
           </main>
           <footer class="mb-2">
