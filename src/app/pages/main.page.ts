@@ -95,22 +95,45 @@ import { ToastrService } from 'ngx-toastr';
         Technologies I master
         </p>
 
-        <div class="logos">
-            <div class="logos-slide">
-                <img  src="../../assets/angular-logo.png">
-                <img  src="../../assets/tailwind-logo.png">
-                <img  src="../../assets/csharp-logo.png">
-                <img  src="../../assets/typescript.png">
-                <img  src="../../assets/sqlserver-logo.webp">
-                <img  src="../../assets/mysql-logo.png">
-            </div>
-            <div class="logos-slide">
-                <img  src="../../assets/angular-logo.png">
-                <img  src="../../assets/tailwind-logo.png">
-                <img  src="../../assets/csharp-logo.png">
-                <img  src="../../assets/typescript.png">
-                <img  src="../../assets/sqlserver-logo.webp">
-                <img  src="../../assets/mysql-logo.png">
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <img  src="../../assets/angular-logo.png" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/tailwind-logo.png" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/netcore-logo.png" class="img">                    
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/typescript.png" class="img">                
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/sqlserver-logo.webp" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/mysql-logo.png" class="img">                    
+                </div>
+            <!-- repeat-imgages-->
+            <div class="slide">
+                    <img  src="../../assets/angular-logo.png" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/tailwind-logo.png" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/netcore-logo.png" class="img">                    
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/typescript.png" class="img">                
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/sqlserver-logo.webp" class="img">
+                </div>
+                <div class="slide">
+                    <img  src="../../assets/mysql-logo.png" class="img">                    
+                </div>
             </div>
         </div>        
     </section>
@@ -142,33 +165,56 @@ import { ToastrService } from 'ngx-toastr';
     </section>
     `,
     styles: [`
+    .slider{
+        height: 250px;
+        margin: auto;
+        position: relative;
+        width: 90%;
+        display: grid;
+        place-items: center;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 
-@keyframes slide {
-    from {
-        transform: translateX(0);
     }
-    to{
-        transform: translateX(-100%);
+    .slide-track{
+        display: flex;
+        width: calc(250px * 12);
+        animation: scroll 40s linear infinite;
     }
-}
-.logos{
-    padding: 60px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-.logos:hover .logos-slide{
-    animation-play-state: paused;
-}
-.logos-slide{
-    display: inline-flex;
-    animation: 5s slide infinite linear;
-   }
-   .logos-slide img{
-    height: 60px;
-    margin: 0 40px;
-   }
-
+    .slide-track:hover{
+        animation-play-state: paused;
+    }
+    .slide{
+        height: 200px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        padding: 15px;    
+    }
+    .slider::before,
+    .slider::after {
+        background: linear-gradient (to right, rgba（255, 255, 255, 1） 0%);
+        content: ''; 
+        height: 100%;
+        position: absolute;
+        width: 15%;
+        z-index: 2;
+    }
+    .slider::after{
+        right: 0;
+        top: 0;
+    }
+    .slider::before{
+        left: 0;
+        top: 0;
+    }
+    @keyframes scroll {
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-250px * 12));
+        }
+    }
 .wave-flex {
     display: -webkit-box;
     display: -ms-flexbox;
