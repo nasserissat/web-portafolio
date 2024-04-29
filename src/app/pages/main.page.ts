@@ -27,7 +27,7 @@ import { ToastrService } from 'ngx-toastr';
             </div>
         </div>
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
-            <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="../../assets/nasserimg.jpg" alt="Nasser's picture">            
+            <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="./../../assets/nasserimg.jpg" alt="Nasser's picture">            
         </div>
     </section>
 
@@ -413,12 +413,12 @@ export class MainPage {
       ];
       projects: Slider[] = [];
       technologies = [
-        { imgSrc: '../../assets/angular-logo.png', name: 'Angular' },
-        { imgSrc: '../../assets/tailwind-logo.png', name: 'Tailwind CSS' },
-        { imgSrc: '../../assets/netcore-logo.png', name: '.NET Core' },
-        { imgSrc: '../../assets/typescript.png', name: 'TypeScript' },
-        { imgSrc: '../../assets/sqlserver-logo.webp', name: 'SQL Server' },
-        { imgSrc: '../../assets/mysql-logo.png', name: 'MySQL' }
+        { imgSrc: './../../assets/angular-logo.png', name: 'Angular' },
+        { imgSrc: './../../assets/tailwind-logo.png', name: 'Tailwind CSS' },
+        { imgSrc: './../../assets/netcore-logo.png', name: '.NET Core' },
+        { imgSrc: './../../assets/typescript.png', name: 'TypeScript' },
+        { imgSrc: './../../assets/sqlserver-logo.webp', name: 'SQL Server' },
+        { imgSrc: './../../assets/mysql-logo.png', name: 'MySQL' }
       ];
       
 }
