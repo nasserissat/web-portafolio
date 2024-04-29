@@ -27,7 +27,7 @@ import { ToastrService } from 'ngx-toastr';
             </div>
         </div>
         <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
-            <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="../../assets/IMG_9199.jpg" alt="Nasser's picture">            
+            <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="../../assets/nasserimg.jpg" alt="Nasser's picture">            
         </div>
     </section>
 
