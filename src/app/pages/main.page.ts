@@ -392,7 +392,7 @@ export class MainPage {
     customSlides: Slider[] = [
         {
           title: 'Proficient in 3 languages',
-          description: 'Native Spanish, Advanced English (Instituto Domínico Americano), Intermediate Portuguese.',
+          description: 'Native Spanish, Advanced English (B2), Intermediate Portuguese.',
           icon: 'fa-solid fa-globe'
         },
         {

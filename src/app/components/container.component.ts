@@ -43,7 +43,7 @@ import { Component } from "@angular/core";
           </main>
           <footer class="mb-2">
             <div class="md:flex justify-center items-center space-x-4 text-center">
-              <p class="text-[#5A5A5A]">Made with ❤️ by <a href="https://www.linkedin.com/in/eduardo-alejandro-ramirez-ramirez-7b1b3b1b4/" class="text-primary">Nasser Issa </a></p>
+              <p class="text-[#5A5A5A]">Made by <a href="https://www.linkedin.com/in/nasser-emil-issa-tavares-9307b226a/" class="text-primary">Nasser Issa </a></p>
               <span>
                 © Nissa - All rights reserved.
               </span>
