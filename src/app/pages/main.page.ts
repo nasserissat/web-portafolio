@@ -35,7 +35,7 @@ import { ToastrService } from 'ngx-toastr';
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
             <p class="md:text-lg text-center">
-            I have collaborated on significant projects for prominent clients in my role as a junior developer, providing software solutions that positively impact their operations.
+            I have collaborated on significant projects for prominent clients in my role as a Mid Developer, providing software solutions that positively impact their operations.
             </p>              
         </div>
         <div class="grid grid-cols-3 items-center text-center p-5 py-0 lg:mx-[385px]">
@@ -49,7 +49,7 @@ import { ToastrService } from 'ngx-toastr';
         </div> 
         <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px]">
             <h3>Years of experience</h3>
-            <h3>Proyects completed</h3>
+            <h3>Contributed projects</h3>
             <h3>Technologies mastered</h3>
         </div> 
         <app-carousel
@@ -65,29 +65,30 @@ import { ToastrService } from 'ngx-toastr';
         </app-carousel>
     </section>
     <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh]">
-        <h1 class="sub-title text-secondary">Check out my latest projects!</h1>
-        <div class="flex-1 w-screen overflow-x-auto p-5 space-x-4  md:min-w-1/2 xl:min-w-1/3">
-  <div *ngFor="let project of projects" class="min-w-full max-h-full">
-    <div class="bg-white shadow-lg rounded-lg">
-      <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg w-full object-cover" style="height: 200px;">
-      <div class="p-4">
-        <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
-        <p class="text-gray-700 min-h-24">{{ project.description }}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+        <h1 class="sub-title text-secondary">Check out my latest project!</h1>
+        <div class="flex-1 p-5 ">
+            <div  *ngFor="let project of projects" class="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-[450px]">
+            <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg object-contain max-h-64">
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
+                <p class="text-gray-700 min-h-24">{{ project.description }}</p>
+            </div>
+            <b>Check out the code source on Github!</b>
+            <div class="flex w-full items-center p-4 justify-center space-x-3 ">
+                <a href="https://github.com/nasserissat/AcademiK-Frontend" target="_blank" class="button-small bg-primary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:opacity-90 shine-effect">Frontend</a>
+                <a href="https://github.com/nasserissat/AcademiK" target="_blank" class="button-small bg-tertiary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:bg-gray-700 shine-effect">Backend</a>
+            </div>
+            </div>
+        </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-	<defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
-	<g class="parallax">
-		<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-		<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-		<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-		<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-	</g>
-</svg>
-
+            <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
     </section>
     
     <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden pt-[9vh]">
@@ -385,33 +386,32 @@ export class MainPage {
       }
     numbersToAnimate = [
         { maxValue: 2, duration: 2000, color: "text-secondary" },
-        { maxValue: 6, duration: 2000, color: "text-secondary" },
+        { maxValue: 13, duration: 2000, color: "text-secondary" },
         { maxValue: 8, duration: 2000, color: "text-secondary" },
     ];
     customSlides: Slider[] = [
         {
-          img: '../../assets/itla.jpeg',
+          title: 'Proficient in 3 languages',
+          description: 'Native Spanish, Advanced English (Instituto Domínico Americano), Intermediate Portuguese.',
+          icon: 'fa-solid fa-globe'
+        },
+        {
           title: 'Graduated from ITLA',
           description: 'Esteemed as one of the most prestigious institutions in the Caribbean and Central America',
-          link: 'https://example.com/more-about-innovation',
           icon: 'fa-solid fa-graduation-cap'
         },
         {
-            img: '../../assets/itla.jpeg',
             title: 'Internation accreditation',
             description: 'ITLA boasts ABET accreditation, a global benchmark of excellence.',
-            link: 'https://example.com/more-about-innovation',
             icon: 'fa-solid fa-award'
-          },
-        {
-          img: '../../assets/unibejpg.jpeg',
-          title: 'UNIBE university',
-          description: 'Aprende sobre la integración de nuevas tecnologías en sistemas educativos modernos.',
-          link: 'https://example.com/more-about-education',
-          icon: 'fa-solid fa-microchip'
-        }
+          }
       ];
-      projects: Slider[] = [];
+      projects: Slider[] = [
+        {img: 'assets/attendance-ak.png',
+        title: 'AcademiK App',
+        description: 'Allow teachers to manage their students, publish grades, and record attendance. Although still in progress, this project showcases my skills in software development and system design.',
+        icon: 'fa-solid fa-globe'}
+      ];
       technologies = [
         { imgSrc: 'assets/angular-logo.png', name: 'Angular' },
         { imgSrc: 'assets/tailwind-logo.png', name: 'Tailwind CSS' },
