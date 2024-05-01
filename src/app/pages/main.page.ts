@@ -3,7 +3,6 @@ import { AnimatedNumberComponent } from "../components/animate-number.page";
 import { ContactData, Slider } from "../models/models";
 import { CarouselComponent } from "../components/carousel.component";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { DataService } from "../services/data.service";
 import { ToastrService } from 'ngx-toastr';
 import emailjs from '@emailjs/browser';
 @Component({
@@ -152,7 +151,7 @@ import emailjs from '@emailjs/browser';
                 <textarea formControlName="message" id="message" name="message" placeholder="Message" class="input h-48" aria-colspan="12"></textarea>
                 <span *ngIf="contact_form.get('message')?.hasError('required') && contact_form.get('message')?.touched" class="text-red-500">This field is required</span>
             </div>
-          <button type="submit" class="button primary text-white p-2 rounded-md mt-4 col-span-2">Send</button>
+          <button [disabled]="sending" type="submit" class="button primary text-white p-2 rounded-md mt-4 col-span-2">{{sending ? 'sending...' : 'send'}}</button>
         </form>
     </section>
     `,
@@ -299,6 +298,7 @@ import emailjs from '@emailjs/browser';
     `]
 })
 export class MainPage {
+    sending: boolean = false;
     @ViewChildren(AnimatedNumberComponent) animatedNumbers!: QueryList<AnimatedNumberComponent>;
     @ViewChild('carouselComponent') carouselComponent: CarouselComponent | undefined;
     @ViewChild('aboutSection', { read: ElementRef }) aboutSection: ElementRef | undefined;
@@ -307,7 +307,6 @@ export class MainPage {
     constructor(
         private fb: FormBuilder,
         private renderer: Renderer2,
-        private data: DataService,
         private toastr: ToastrService){
         emailjs.init("4XOnqCL67qaT17slh");
         this.contact_form = this.fb.group({
@@ -320,17 +319,12 @@ export class MainPage {
 
     async send(){
         console.log(this.contact_form.value)
-        let contact_data: ContactData = { 
-            from_name: this.contact_form.get('name')?.value,
-            from_email: this.contact_form.get('email')?.value,
-            subject: this.contact_form.get('subject')?.value,
-            message: this.contact_form.get('message')?.value,
-           };
            if(!this.contact_form.valid){
             this.toastr.error('Please complete all required fields', ' Submission Failed')
             return;
          }
         try {
+            this.sending = true
             const response = await emailjs.send("service_5tr7umd","template_s6i8c1k",{
                 from_name: this.contact_form.value.name,
                 from_email: this.contact_form.value.email,
@@ -340,11 +334,15 @@ export class MainPage {
             if(response.status === 200){
                 this.toastr.success('Your email has been send successfully!', 'Message send!!')
                 this.contact_form.reset();
+                this.sending = false
             }else{
                 this.toastr.error('Failed to send the message. Status: ' + response.status, 'Error');
+                this.sending = false
             }
         } catch (error) {
             this.toastr.error('An error occurred while sending the email: ' + error, 'Error');
+            this.sending = false
+
         }
     }
     

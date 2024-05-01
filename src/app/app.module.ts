@@ -8,7 +8,6 @@ import { MainPage } from './pages/main.page';
 import { ContainerComponent } from './components/container.component';
 import { AnimatedNumberComponent } from './components/animate-number.page';
 import { CarouselComponent } from './components/carousel.component';
-import { DataService } from './services/data.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
