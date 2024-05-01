@@ -8,8 +8,8 @@ export type Slider = {
     icon?: string
 }
 export type ContactData = {
-    name: string
-    company: string
-    email: string
+    from_name: string
+    from_email: string
+    subject: string
     message: string
 }

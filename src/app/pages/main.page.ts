@@ -5,7 +5,7 @@ import { CarouselComponent } from "../components/carousel.component";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataService } from "../services/data.service";
 import { ToastrService } from 'ngx-toastr';
-
+import emailjs from '@emailjs/browser';
 @Component({
     selector: 'main-page',
     template: `
@@ -127,24 +127,28 @@ import { ToastrService } from 'ngx-toastr';
     </section>
     <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full">
         <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Let's get in touch ;) </h1>
-    <form  (ngSubmit)="save()" [formGroup]="contact_form" class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
+    <form  (ngSubmit)="send()" [formGroup]="contact_form" class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
             <div class="col-span-2 mt-5 w-11/12">
-                <label for="name" class="font-semibold">Name</label>
-                <input formControlName="name" id="name" name="name" type="text" placeholder="Name" class="input">
+                <label for="name" class="font-semibold">Name:</label>
+                <input formControlName="name" id="name" name="name" type="text" placeholder="Name or company" class="input">
                 <span *ngIf="contact_form.get('name')?.hasError('required') && contact_form.get('name')?.touched" class="text-red-500">This field is required</span>
             </div>
-            <div class="col-span-2 mt-5 w-11/12">
-                <label for="company" class="font-semibold">Company</label>
-                <input formControlName="company" id="company" name="company" type="text" placeholder="Company" class="input">
-                <span *ngIf="contact_form.get('company')?.hasError('required') && contact_form.get('company')?.touched" class="text-red-500">This field is required</span>
-            </div>
-            <div class="col-span-2 mt-5 w-11/12">
-                <label for="email" class="font-semibold">Email</label>
-                <input formControlName="email" id="email" name="email" type="email" placeholder="Email" class="input">
+            <div class="col-span-2 md:col-span-1 mt-5 w-11/12 md:w-10/12">
+                <label for="email" class="font-semibold">From: </label>
+                <input formControlName="email" id="email" name="email" type="email" placeholder="From email" class="input">
                 <span *ngIf="contact_form.get('email')?.hasError('required') && contact_form.get('email')?.touched" class="text-red-500">This field is required</span>
             </div>
+            <div class="col-span-2 md:col-span-1 mt-5 w-11/12 md:w-10/12">
+                <label  class="font-semibold">To: </label>
+                <input disabled type="email" placeholder="nasseremil25@gmail.com" class="input placeholder:text-gray-500 bg-gray-100">
+            </div>
             <div class="col-span-2 mt-5 w-11/12">
-                <label for="message" class="font-semibold">Message</label>
+                <label for="subject" class="font-semibold">Subject: </label>
+                <input formControlName="subject" id="subject" name="subject" type="text" placeholder="Subject" class="input">
+                <span *ngIf="contact_form.get('subject')?.hasError('required') && contact_form.get('subject')?.touched" class="text-red-500">This field is required</span>
+            </div>
+            <div class="col-span-2 mt-5 w-11/12">
+                <label for="message" class="font-semibold">Message: </label>
                 <textarea formControlName="message" id="message" name="message" placeholder="Message" class="input h-48" aria-colspan="12"></textarea>
                 <span *ngIf="contact_form.get('message')?.hasError('required') && contact_form.get('message')?.touched" class="text-red-500">This field is required</span>
             </div>
@@ -305,35 +309,45 @@ export class MainPage {
         private renderer: Renderer2,
         private data: DataService,
         private toastr: ToastrService){
-
+        emailjs.init("4XOnqCL67qaT17slh");
         this.contact_form = this.fb.group({
             name: ['', Validators.required],
-            company: ['', Validators.required],
             email: ['', Validators.required],
+            subject: ['', Validators.required],
             message: ['', Validators.required],
           })
     }
 
-    save(){
+    async send(){
         console.log(this.contact_form.value)
         let contact_data: ContactData = { 
-            name: this.contact_form.get('name')?.value,
-            company: this.contact_form.get('company')?.value,
-            email: this.contact_form.get('email')?.value,
+            from_name: this.contact_form.get('name')?.value,
+            from_email: this.contact_form.get('email')?.value,
+            subject: this.contact_form.get('subject')?.value,
             message: this.contact_form.get('message')?.value,
            };
            if(!this.contact_form.valid){
             this.toastr.error('Please complete all required fields', ' Submission Failed')
             return;
          }
-         this.data.summitContactInfo(contact_data).subscribe(() => {
-            this.toastr.success('Your email has been send successfully!', 'Message send!!')
-            this.contact_form.reset();
-          }, (error: any) => {
-            this.toastr.error('Error: ' + error.error.error, 'The message could not be send!')
-            console.log(error)
-          });
+        try {
+            const response = await emailjs.send("service_5tr7umd","template_s6i8c1k",{
+                from_name: this.contact_form.value.name,
+                from_email: this.contact_form.value.email,
+                subject: this.contact_form.value.subject,
+                message: this.contact_form.value.message,
+            });
+            if(response.status === 200){
+                this.toastr.success('Your email has been send successfully!', 'Message send!!')
+                this.contact_form.reset();
+            }else{
+                this.toastr.error('Failed to send the message. Status: ' + response.status, 'Error');
+            }
+        } catch (error) {
+            this.toastr.error('An error occurred while sending the email: ' + error, 'Error');
+        }
     }
+    
     ngAfterViewInit(): void {
         if (typeof window !== 'undefined') {
             this.renderer.listen('window', 'scroll', () => {    
@@ -420,5 +434,4 @@ export class MainPage {
         { imgSrc: 'assets/sqlserver-logo.webp', name: 'SQL Server' },
         { imgSrc: 'assets/mysql-logo.png', name: 'MySQL' }
       ];
-      
 }
