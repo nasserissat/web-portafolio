@@ -132,14 +132,10 @@ import emailjs from '@emailjs/browser';
                 <input formControlName="name" id="name" name="name" type="text" placeholder="Name or company" class="input">
                 <span *ngIf="contact_form.get('name')?.hasError('required') && contact_form.get('name')?.touched" class="text-red-500">This field is required</span>
             </div>
-            <div class="col-span-2 md:col-span-1 mt-5 w-11/12 md:w-10/12">
+            <div class="col-span-2 mt-5 w-11/12">
                 <label for="email" class="font-semibold">From: </label>
                 <input formControlName="email" id="email" name="email" type="email" placeholder="From email" class="input">
-                <span *ngIf="contact_form.get('email')?.hasError('required') && contact_form.get('email')?.touched" class="text-red-500">This field is required</span>
-            </div>
-            <div class="col-span-2 md:col-span-1 mt-5 w-11/12 md:w-10/12">
-                <label  class="font-semibold">To: </label>
-                <input disabled type="email" placeholder="nasseremil25@gmail.com" class="input placeholder:text-gray-500 bg-gray-100">
+                <span *ngIf="contact_form.get('email')?.invalid && contact_form.get('email')?.touched" class="text-red-500">Please enter a valid email address</span>
             </div>
             <div class="col-span-2 mt-5 w-11/12">
                 <label for="subject" class="font-semibold">Subject: </label>
@@ -311,7 +307,7 @@ export class MainPage {
         emailjs.init("4XOnqCL67qaT17slh");
         this.contact_form = this.fb.group({
             name: ['', Validators.required],
-            email: ['', Validators.required],
+            email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
             subject: ['', Validators.required],
             message: ['', Validators.required],
           })
