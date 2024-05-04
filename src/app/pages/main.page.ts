@@ -8,7 +8,7 @@ import emailjs from '@emailjs/browser';
 @Component({
     selector: 'main-page',
     template: `
-    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5 pt-[9vh]">
+    <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5 pt-[9vh] max-w-[100vw]">
         <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
@@ -25,15 +25,15 @@ import emailjs from '@emailjs/browser';
             </button>
             </div>
         </div>
-        <div class="grid col-span-12 items-start lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
+        <div class="grid col-span-12 items-center lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
             <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="assets/nasserimg.jpg" alt="Nasser's picture">            
         </div>
     </section>
 
-    <section #aboutSection id="about" class="grid bg-tertiary text-secondary h-screen  overflow-x-hidden overflow-y-hidden pt-[9vh]">
+    <section #aboutSection id="about" class="grid bg-tertiary text-secondary h-screen overflow-x-hidden overflow-y-hidden pt-[9vh]">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
             <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
-            <p class="md:text-lg text-center">
+            <p class="xs:text-sm sm:text-base md:text-lg text-center">
             I have collaborated on significant projects for prominent clients in my role as a Mid Developer, providing software solutions that positively impact their operations.
             </p>              
         </div>
@@ -46,7 +46,7 @@ import emailjs from '@emailjs/browser';
                 </app-animated-number>
             </div>
         </div> 
-        <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px]">
+        <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px] _text-xs ">
             <h3>Years of experience</h3>
             <h3>Contributed projects</h3>
             <h3>Technologies mastered</h3>
@@ -58,21 +58,21 @@ import emailjs from '@emailjs/browser';
         (mouseleave)="startCarousel()">
         <div class="flex-none w-full text-center" *ngFor="let slide of customSlides">
                 <i class="{{slide.icon}} text-white text-7xl xl:text-9xl max-h-44 pt-8"></i>
-                  <div class="text-2xl py-8">{{ slide.title }}</div>
-                  <div class="md:text-lg px-3 mb-16">{{ slide.description }}</div>
+                  <div class="text-xl md:text-2xl py-8">{{ slide.title }}</div>
+                  <div class="md:text-lg px-3 mb-16 text-sm">{{ slide.description }}</div>
             </div>
         </app-carousel>
     </section>
-    <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh]">
-        <h1 class="sub-title text-secondary">Check out my latest project!</h1>
+    <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh] sm:max-w-[100vw] xs:px-1 sm:px-0">
+        <h1 class="sub-title text-secondary px-1">Check out my latest project!</h1>
         <div class="flex-1 p-5 ">
             <div  *ngFor="let project of projects" class="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-[450px]">
             <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg object-contain max-h-64">
             <div class="p-4">
                 <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
-                <p class="text-gray-700 min-h-24">{{ project.description }}</p>
+                <p class="text-gray-700 min-h-24 xs:text-sm  md:text-base">{{ project.description }}</p>
             </div>
-            <b>Check out the code source on Github!</b>
+            <b class="xs:text-sm sm:text-base">Check out the code source on Github!</b>
             <div class="flex w-full items-center p-4 justify-center space-x-3 ">
                 <a href="https://github.com/nasserissat/AcademiK-Frontend" target="_blank" class="button-small bg-primary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:opacity-90 shine-effect">Frontend</a>
                 <a href="https://github.com/nasserissat/AcademiK" target="_blank" class="button-small bg-tertiary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:bg-gray-700 shine-effect">Backend</a>
@@ -90,7 +90,7 @@ import emailjs from '@emailjs/browser';
         </svg>
     </section>
     
-    <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden pt-[9vh]">
+    <section class="flex flex-col w-screen max-w-screen !overflow-x-hidden pt-[9vh] max-w-[100vw]">
         <p class="title text-center text-tertiary">
         Technologies I master
         </p>
@@ -124,7 +124,7 @@ import emailjs from '@emailjs/browser';
             </div>
         </div>        
     </section>
-    <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full">
+    <section id="contact" class="flex flex-col h-screen pt-[9vh] text-tertiary items-center w-full max-w-[100vw]">
         <h1 class="col-span-2 lg:col-span-1 sub-title text-center">Let's get in touch ;) </h1>
     <form  (ngSubmit)="send()" [formGroup]="contact_form" class="grid grid-cols-2 place-items-center justify-center items-center w-full lg:w-1/2">
             <div class="col-span-2 mt-5 w-11/12">
@@ -152,6 +152,8 @@ import emailjs from '@emailjs/browser';
     </section>
     `,
     styles: [`
+ 
+
     .slider{
         height: 250px;
         margin: auto;

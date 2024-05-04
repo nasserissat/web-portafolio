@@ -21,7 +21,7 @@ $secondary-color: #001F3F; //o este color verde oscuro#36574f
   @apply text-4xl md:text-5xl xl:text-6xl tracking-wider font-bold;
 }
 .sub-title{
-    @apply text-2xl md:text-3xl xl:text-4xl font-bold;
+    @apply  text-2xl md:text-3xl xl:text-4xl font-bold;
 }
 // buttons 
 .button-small {
@@ -72,4 +72,13 @@ $secondary-color: #001F3F; //o este color verde oscuro#36574f
 
 .shine-effect:hover::before {
     left: 200%;
+}
+@media (min-width: 360px) and (max-width: 390px) {
+    /* Coloca aquí los estilos específicos para este rango */
+    ._text-xs {
+        font-size: 13px; 
+    }
+    ._text-xxs {
+        font-size: 12px; 
+    }
 }

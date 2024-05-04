@@ -3,7 +3,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-animated-number',
-  template: `<span class="text-5xl font-bold {{color}}">{{currentValue | number:'1.0-0'}}</span>
+  template: `<span class="text-[42px] md:text-5xl font-bold {{color}}">{{currentValue | number:'1.0-0'}}</span>
   `
 })
 export class AnimatedNumberComponent implements OnInit {

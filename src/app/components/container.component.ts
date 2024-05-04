@@ -11,7 +11,7 @@ import { Component } from "@angular/core";
               <i (click)="burgerMenuIsActive = true" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
             </div>
             <nav class="hidden lg:flex items-center">
-              <img src="assets/nissa.png" class="w-36 mr-3">
+              <img (click)="scrollTo('home')" src="assets/nissa.png" class="w-36 mr-6 cursor-pointer">
               <ul class="flex space-x-10">
                     <li *ngFor="let menu of menus" class="cursor-pointer">
                         <a  (click)="scrollTo(menu.link.substring(1))" routerLinkActive="active-link-class" class="hover:-translate-y-1 hover:text-primary duration-150 font-semibold">
