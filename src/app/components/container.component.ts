@@ -20,7 +20,11 @@ import { Component } from "@angular/core";
                     </li>
                 </ul>
             </nav>
-            <div class="hidden lg:flex items-center">
+            <div class="hidden lg:flex items-center space-x-4">
+              <a href="assets/Curriculum.pdf"  download="Nasser Issa CV.pdf"  class="hover:translate-y-0.5 duration-200 text-primary primary py-4 px-6 xl:mt-2 cursor-pointer">
+                Download CV
+                <i class="fa-solid fa-download  pl-1.5"></i>
+              </a>
               <button (click)="scrollTo('contact')" class="button primary py-4 px-6 xl:mt-2 cursor-pointer">
                 Contact me
                 <i class="fa-solid fa-handshake text-white pl-1.5"></i>

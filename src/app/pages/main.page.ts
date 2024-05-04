@@ -9,7 +9,7 @@ import emailjs from '@emailjs/browser';
     selector: 'main-page',
     template: `
     <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5 pt-[9vh] max-w-[100vw]">
-        <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10">
+        <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10 ml-2.5">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
                 I'm <span class="text-primary">Nasser</span> 
@@ -19,13 +19,17 @@ import emailjs from '@emailjs/browser';
             I love to code things from scratch, and enjoy bringing ideas to life in the browser.
             </p>
             <div class="flex lg:flex-col items-center lg:items-start justify-between lg:justify-start lg:space-y-5">
-                <p (click)="scrollTo('about')" class="flex font-medium hover:text-primary items-center justify-center hover:translate-x-3 duration-300 cursor-pointer">About me <span><i class="fa-solid fa-play text-primary hover:text-primary hover:text-opacity-3 p-4 rotate-90"></i></span></p>
-                <button (click)="scrollTo('contact')" class="button primary font-semibold">
+                <p (click)="scrollTo('about')" class="hidden xl:flex font-medium hover:text-primary items-center justify-center hover:translate-y-1 duration-300 cursor-pointer ml-3">About me <span><i class="fa-solid fa-play text-primary hover:text-primary hover:text-opacity-3 p-4 rotate-90"></i></span></p>
+                <a href="assets/Curriculum.pdf"  download="Nasser Issa CV.pdf" class="xl:hidden hover:text-primary font-medium hover:scale-105 duration-300 cursor-pointer">
+                Download CV
+                <i class="fa-solid fa-download text-primary pl-1.5"></i>
+                </a>
+                <button (click)="scrollTo('contact')" class="flex button primary font-semibold">
                 Hire me
             </button>
             </div>
         </div>
-        <div class="grid col-span-12 items-center lg:items-center lg:col-span-5 h-full p-3 lg:p-0">
+        <div class="grid col-span-12 items-center lg:items-center lg:col-span-5 h-full p-3 lg:p-0 mr-2.5">
             <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="assets/nasserimg.jpg" alt="Nasser's picture">            
         </div>
     </section>
