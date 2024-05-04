@@ -9,7 +9,7 @@ import emailjs from '@emailjs/browser';
     selector: 'main-page',
     template: `
     <section id="home" class="grid lg:grid-cols-12 items-center lg:h-screen px-5 pt-[9vh] max-w-[100vw]">
-        <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10 ml-2.5">
+        <div class="grid col-span-12 lg:col-span-7 space-y-5 lg:space-y-10 xl:ml-2.5">
             <h4 class="text-lg font-medium mt-2">👋 Hey there,</h4>
             <p class="font-semibold text-5xl lg:text-[82px]">
                 I'm <span class="text-primary">Nasser</span> 
@@ -29,7 +29,7 @@ import emailjs from '@emailjs/browser';
             </button>
             </div>
         </div>
-        <div class="grid col-span-12 items-center lg:items-center lg:col-span-5 h-full p-3 lg:p-0 mr-2.5">
+        <div class="grid col-span-12 items-center lg:items-center lg:col-span-5 h-full p-3 lg:p-0 xl:mr-2.5">
             <img class="rounded-lg object-contain lg:object-cover lg:w-full lg:h-5/6 mt-4 lg:mt-0" src="assets/nasserimg.jpg" alt="Nasser's picture">            
         </div>
     </section>
