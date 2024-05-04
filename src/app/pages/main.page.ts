@@ -14,7 +14,7 @@ import emailjs from '@emailjs/browser';
             <p class="font-semibold text-5xl lg:text-[82px]">
                 I'm <span class="text-primary">Nasser</span> 
             </p>
-            <typer class="flex font-semibold text-2xl lg:text-[62px]"></typer>
+            <typer class="flex font-semibold text-2xl lg:text-[52px]"></typer>
             <p class="font-semibold leading-7 lg:w-1/2 text-justify mt-5"> 
             I love to code things from scratch, and enjoy bringing ideas to life in the browser.
             </p>
@@ -32,8 +32,8 @@ import emailjs from '@emailjs/browser';
 
     <section #aboutSection id="about" class="grid bg-tertiary text-secondary h-screen overflow-x-hidden overflow-y-hidden pt-[9vh]">
         <div class="grid cols-span-12 items-center text-center p-5 lg:mx-[385px]">
-            <h1 class="title font-bold text-xl lg:text-4xl py-4">Get to know a bit about me ;)</h1>
-            <p class="xs:text-sm sm:text-base md:text-lg text-center">
+            <h1 class="title font-bold text-xl lg:text-3xl py-4">Get to know a bit about me ;)</h1>
+            <p class="xs:text-sm sm:text-base  text-center">
             I have collaborated on significant projects for prominent clients in my role as a Mid Developer, providing software solutions that positively impact their operations.
             </p>              
         </div>
@@ -46,7 +46,7 @@ import emailjs from '@emailjs/browser';
                 </app-animated-number>
             </div>
         </div> 
-        <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px] _text-xs ">
+        <div class="grid grid-cols-3 text-center p-5 pt-0 pb-0 lg:pb-5 lg:mx-[385px] _text-xs xl:text-lg">
             <h3>Years of experience</h3>
             <h3>Contributed projects</h3>
             <h3>Technologies mastered</h3>
@@ -57,23 +57,23 @@ import emailjs from '@emailjs/browser';
         (mouseenter)="stopCarousel()"
         (mouseleave)="startCarousel()">
         <div class="flex-none w-full text-center" *ngFor="let slide of customSlides">
-                <i class="{{slide.icon}} text-white text-7xl xl:text-9xl max-h-44 pt-8"></i>
+                <i class="{{slide.icon}} text-white text-7xl xl:text-8xl max-h-44 pt-8"></i>
                   <div class="text-xl md:text-2xl py-8">{{ slide.title }}</div>
                   <div class="md:text-lg px-3 mb-16 text-sm">{{ slide.description }}</div>
             </div>
         </app-carousel>
     </section>
     <section id="portafolio" class="wave-flex flex flex-col relative w-screen h-screen bg-primary pt-[9vh] sm:max-w-[100vw] xs:px-1 sm:px-0">
-        <h1 class="sub-title text-secondary px-1">Check out my latest project!</h1>
+        <h1 class="sub-title text-secondary px-1 mt-4">Check out my latest project!</h1>
         <div class="flex-1 p-5 ">
-            <div  *ngFor="let project of projects" class="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-[450px]">
-            <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg object-contain max-h-64">
+            <div  *ngFor="let project of projects" class="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-[350px]">
+            <img [src]="project.img" alt="{{ project.title }}" class="rounded-t-lg object-contain md:max-h-44">
             <div class="p-4">
                 <h2 class="text-2xl font-bold mb-2">{{ project.title }}</h2>
-                <p class="text-gray-700 min-h-24 xs:text-sm  md:text-base">{{ project.description }}</p>
+                <p class="text-gray-700  xs:text-sm  md:text-base xl:text-sm">{{ project.description }}</p>
             </div>
             <b class="xs:text-sm sm:text-base">Check out the code source on Github!</b>
-            <div class="flex w-full items-center p-4 justify-center space-x-3 ">
+            <div class="flex w-full items-center p-4 justify-center space-x-3">
                 <a href="https://github.com/nasserissat/AcademiK-Frontend" target="_blank" class="button-small bg-primary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:opacity-90 shine-effect">Frontend</a>
                 <a href="https://github.com/nasserissat/AcademiK" target="_blank" class="button-small bg-tertiary text-white hover:scale-105 duration-200 ease-in cursor-pointer hover:bg-gray-700 shine-effect">Backend</a>
             </div>
@@ -419,7 +419,7 @@ export class MainPage {
       projects: Slider[] = [
         {img: 'assets/attendance-ak.png',
         title: 'AcademiK App',
-        description: 'Allow teachers to manage their students, publish grades, and record attendance. Although still in progress, this project showcases my skills in software development and system design.',
+        description: 'Allow teachers to manage their students, publish grades, and record attendance.',
         icon: 'fa-solid fa-globe'}
       ];
       technologies = [

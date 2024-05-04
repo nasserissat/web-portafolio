@@ -21,9 +21,9 @@ import { Component } from "@angular/core";
                 </ul>
             </nav>
             <div class="hidden lg:flex items-center">
-              <button (click)="scrollTo('contact')" class="button primary py-4 px-6 cursor-pointer">
+              <button (click)="scrollTo('contact')" class="button primary py-4 px-6 xl:mt-2 cursor-pointer">
                 Contact me
-                <i class="fa-solid fa-handshake text-white pl-4"></i>
+                <i class="fa-solid fa-handshake text-white pl-1.5"></i>
               </button>
             </div>
           </header>

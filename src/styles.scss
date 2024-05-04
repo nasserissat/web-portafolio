@@ -15,13 +15,13 @@ $secondary-color: #001F3F; //o este color verde oscuro#36574f
 
 
 .title{
-    @apply text-3xl md:text-4xl xl:text-6xl font-extrabold;
+    @apply text-3xl md:text-4xl xl:text-5xl font-extrabold;
 }
 .title-2{
   @apply text-4xl md:text-5xl xl:text-6xl tracking-wider font-bold;
 }
 .sub-title{
-    @apply  text-2xl md:text-3xl xl:text-4xl font-bold;
+    @apply  text-2xl md:text-3xl xl:text-3xl font-bold;
 }
 // buttons 
 .button-small {
@@ -34,7 +34,7 @@ $secondary-color: #001F3F; //o este color verde oscuro#36574f
     }
 }
 .button {
-    @apply px-8 py-3.5 rounded-full duration-200 cursor-pointer;
+    @apply px-5 py-3 rounded-full duration-200 cursor-pointer;
 
     &.primary{
         @apply bg-primary text-white shine-effect hover:scale-105 ease-in-out;
